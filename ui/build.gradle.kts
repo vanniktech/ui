@@ -1,0 +1,130 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.BitcodeEmbeddingMode
+import org.jetbrains.kotlin.gradle.plugin.mpp.Framework
+
+plugins {
+  id("org.jetbrains.dokka")
+  id("org.jetbrains.kotlin.multiplatform")
+  id("org.jetbrains.kotlin.native.cocoapods")
+  id("com.android.library")
+  id("org.jetbrains.kotlin.plugin.parcelize")
+  id("org.jetbrains.kotlin.plugin.serialization")
+  id("me.tylerbwong.gradle.metalava")
+  id("com.vanniktech.maven.publish")
+  id("app.cash.licensee")
+}
+
+licensee {
+  allow("Apache-2.0")
+}
+
+metalava {
+  filename.set("api/current.txt")
+  sourcePaths.setFrom("src/commonMain", "src/androidMain", "src/iosMain", "src/jvmMain")
+}
+
+kotlin {
+  android {
+    publishLibraryVariants("release")
+  }
+  jvm()
+  jvmToolchain(11)
+  listOf(
+    iosX64(),
+    iosArm64(),
+    iosSimulatorArm64(),
+  ).forEach {
+    it.binaries.all {
+      if (this is Framework) {
+        isStatic = true
+        embedBitcode(if ("YES" == System.getenv("ENABLE_BITCODE")) BitcodeEmbeddingMode.BITCODE else BitcodeEmbeddingMode.MARKER)
+      }
+    }
+  }
+
+  targets.withType<org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget> {
+    compilations["main"].kotlinOptions.freeCompilerArgs += "-Xexport-kdoc"
+  }
+
+  sourceSets {
+    val commonMain by getting {
+      dependencies {
+        api(libs.kotlinx.serialization.json)
+      }
+    }
+
+    val commonTest by getting {
+      dependencies {
+        implementation(libs.kotlin.test.common)
+        implementation(libs.kotlin.test.annotations.common)
+      }
+    }
+
+    val androidMain by getting {
+      dependencies {
+        api(libs.androidx.appcompat)
+        api(libs.androidx.swiperefreshlayout)
+        api(libs.androidx.webkit)
+        api(libs.flexbox)
+        api(libs.material)
+      }
+    }
+
+    val androidTest by getting {
+      dependencies {
+        implementation(libs.kotlin.test.junit)
+      }
+    }
+
+    val jvmMain by getting {
+      dependencies {
+      }
+    }
+
+    val jvmTest by getting {
+      dependencies {
+        implementation(libs.kotlin.test.junit)
+      }
+    }
+
+    val iosX64Main by getting
+    val iosArm64Main by getting
+    val iosSimulatorArm64Main by getting
+    val iosMain by creating {
+      dependsOn(commonMain)
+      iosX64Main.dependsOn(this)
+      iosArm64Main.dependsOn(this)
+      iosSimulatorArm64Main.dependsOn(this)
+    }
+
+    val iosX64Test by getting
+    val iosArm64Test by getting
+    val iosSimulatorArm64Test by getting
+    val iosTest by creating {
+      dependsOn(commonTest)
+      iosX64Test.dependsOn(this)
+      iosArm64Test.dependsOn(this)
+      iosSimulatorArm64Test.dependsOn(this)
+    }
+  }
+
+  cocoapods {
+    summary = "Kotlin Multiplatform UI goodies"
+    homepage = "https://github.com/vanniktech/ui"
+    license = "MIT"
+    name = "ui"
+    authors = "Niklas Baudy"
+    version = project.property("VERSION_NAME").toString()
+  }
+}
+
+android {
+  namespace = "com.vanniktech.ui"
+
+  compileSdk = libs.versions.compileSdk.get().toInt()
+
+  defaultConfig {
+    minSdk = libs.versions.minSdk.get().toInt()
+  }
+
+  resourcePrefix = "ui_"
+}

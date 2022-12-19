@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="UnusedResources">
+  <!-- https://github.com/material-components/material-components-android/issues/2586 -->
+  <style name="UiMaterialCalendarTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+    <item name="android:textColor">#FF000000</item>
+    <item name="colorOnPrimary">#FF000000</item>
+    <item name="colorOnSecondary">#FF000000</item>
+    <item name="colorPrimary">#FFF9F9F9</item>
+    <item name="buttonBarPositiveButtonStyle">@style/UiMaterialCalendarTextButton</item>
+    <item name="buttonBarNegativeButtonStyle">@style/UiMaterialCalendarTextButton</item>
+  </style>
+  <style name="UiMaterialCalendarTextButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+    <item name="android:textColor">#FF000000</item>
+  </style>
+  <!-- https://github.com/material-components/material-components-android/issues/2633 -->
+  <style name="UiTimePickerTheme" parent="ThemeOverlay.MaterialComponents.TimePicker">
+    <item name="android:textColor">#FF121212</item>
+    <item name="android:textColorPrimary">#FF121212</item>
+    <item name="android:textColorSecondary">#99000000</item>
+    <item name="colorAccent">#FF121212</item>
+    <item name="colorControlNormal">#FF121212</item>
+    <item name="colorPrimary">#FF121212</item>
+    <item name="colorSurface">#FFF9F9F9</item>
+  </style>
+</resources>
