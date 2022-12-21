@@ -97,7 +97,6 @@ package com.vanniktech.ui {
   }
 
   public final class AndroidWindowKt {
-    method public static void setNavigationBarColor(com.google.android.material.bottomsheet.BottomSheetDialog, int color);
     method public static void themeWindow(android.view.Window, int statusBarColor, int navigationBarColor, boolean lightNavigationBars, boolean lightStatusBars);
   }
 
