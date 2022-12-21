@@ -3,11 +3,6 @@ package com.vanniktech.ui
 import android.os.Build.VERSION.SDK_INT
 import android.view.Window
 import androidx.core.view.WindowInsetsControllerCompat
-import com.google.android.material.bottomsheet.BottomSheetDialog
-
-fun BottomSheetDialog.setNavigationBarColor(color: Color) {
-  window?.setNavigationBarColor(color)
-}
 
 fun Window.themeWindow(
   statusBarColor: Color,
