@@ -1,6 +1,10 @@
 // Signature format: 4.0
 package com.vanniktech.ui {
 
+  public final class AndroidActivityKt {
+    method public static android.app.Activity? asActivityOrNull(android.content.Context);
+  }
+
   public final class AndroidAnimationKt {
     method public static inline void animate(android.view.ViewGroup, kotlin.jvm.functions.Function0<kotlin.Unit> body);
     method public static inline void animate(android.view.ViewGroup, kotlin.jvm.functions.Function0<kotlin.Unit> body, kotlin.jvm.functions.Function0<kotlin.Unit> onEndListener);
