@@ -1,7 +1,9 @@
 # Change Log
 
-Version 0.3.0 *(In development)*
---------------------------------
+Version 0.3.0 *(2022-12-30)*
+----------------------------
+
+- AndroidNightModeHandler: Improve implementation of isNightMode. [\#3](https://github.com/vanniktech/ui/pull/3) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.2.0 *(2022-12-28)*
 ----------------------------
