@@ -22,26 +22,30 @@ class AndroidNightModeHandler(
       weak = WeakReference(activity)
     } else if (context is Application) {
       context.registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
-        override fun onActivityPreCreated(activity: Activity, savedInstanceState: Bundle?) {
-          weak = WeakReference(activity)
-        }
-        override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) = Unit
-        override fun onActivityStarted(activity: Activity) = Unit
-        override fun onActivityResumed(activity: Activity) = Unit
+        override fun onActivityPreCreated(activity: Activity, savedInstanceState: Bundle?) = set(activity)
+        override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) = set(activity)
+        override fun onActivityPreStarted(activity: Activity) = set(activity)
+        override fun onActivityStarted(activity: Activity) = set(activity)
+        override fun onActivityPreResumed(activity: Activity) = set(activity)
+        override fun onActivityResumed(activity: Activity) = set(activity)
+
         override fun onActivityPaused(activity: Activity) = Unit
         override fun onActivityStopped(activity: Activity) = Unit
         override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) = Unit
         override fun onActivityDestroyed(activity: Activity) = Unit
+
+        private fun set(activity: Activity) {
+          weak = WeakReference(activity)
+        }
       },
       )
     }
   }
 
-  override fun isNightMode(): Boolean {
-    val context = weak?.get() ?: context
-    val isNightMode = context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
-    val isNotOptedOut = AppCompatDelegate.getDefaultNightMode() != AppCompatDelegate.MODE_NIGHT_NO
-    return isNightMode && isNotOptedOut
+  override fun isNightMode() = when (AppCompatDelegate.getDefaultNightMode()) {
+    AppCompatDelegate.MODE_NIGHT_YES -> true
+    AppCompatDelegate.MODE_NIGHT_NO -> false
+    else -> (weak?.get() ?: context).resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK == Configuration.UI_MODE_NIGHT_YES
   }
 
   override fun updateBehavior(nightModeBehavior: NightModeBehavior) {
