@@ -1,8 +1,6 @@
 package com.vanniktech.ui.theming.night
 
-interface NightModeHandler {
+interface NightModeProvider {
   /** Returns true if we are this current moment using the night mode. */
   fun isNightMode(): Boolean
-
-  fun updateBehavior(nightModeBehavior: NightModeBehavior)
 }

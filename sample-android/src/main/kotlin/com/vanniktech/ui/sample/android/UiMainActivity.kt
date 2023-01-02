@@ -8,6 +8,8 @@ import com.vanniktech.ui.sample.android.databinding.ActivityMainBinding
 import com.vanniktech.ui.setBackgroundColor
 import com.vanniktech.ui.setTextColor
 import com.vanniktech.ui.themeWindow
+import com.vanniktech.ui.theming.night.AndroidNightModeBehaviorHandler
+import com.vanniktech.ui.theming.night.ContextNightModeProvider
 import com.vanniktech.ui.theming.night.NightModeBehavior
 
 class UiMainActivity : AppCompatActivity() {
@@ -21,8 +23,7 @@ class UiMainActivity : AppCompatActivity() {
     binding.textView.setTextColor(Color.UNTINTED)
     binding.textView.text = Color.UNTINTED.toString()
 
-    val androidNightModeHandler = (application as UiApplication).androidNightModeHandler
-    val isNightMode = androidNightModeHandler.isNightMode()
+    val isNightMode = ContextNightModeProvider(this).isNightMode()
     val backgroundColor = when (isNightMode) {
       true -> Color.BLACK
       else -> Color.WHITE
@@ -45,8 +46,8 @@ class UiMainActivity : AppCompatActivity() {
 
     binding.nightMode.text = "Is night mode: $isNightMode"
 
-    binding.nightModeYes.setOnClickListener { androidNightModeHandler.updateBehavior(NightModeBehavior.YES) }
-    binding.nightModeNo.setOnClickListener { androidNightModeHandler.updateBehavior(NightModeBehavior.NO) }
-    binding.nightModeFollowSystem.setOnClickListener { androidNightModeHandler.updateBehavior(NightModeBehavior.FOLLOW_SYSTEM) }
+    binding.nightModeYes.setOnClickListener { AndroidNightModeBehaviorHandler.updateBehavior(NightModeBehavior.YES) }
+    binding.nightModeNo.setOnClickListener { AndroidNightModeBehaviorHandler.updateBehavior(NightModeBehavior.NO) }
+    binding.nightModeFollowSystem.setOnClickListener { AndroidNightModeBehaviorHandler.updateBehavior(NightModeBehavior.FOLLOW_SYSTEM) }
   }
 }

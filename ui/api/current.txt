@@ -174,16 +174,19 @@ package com.vanniktech.ui.theming {
 
 package com.vanniktech.ui.theming.night {
 
-  public final class AndroidNightModeHandler implements com.vanniktech.ui.theming.night.NightModeHandler {
-    ctor public AndroidNightModeHandler(android.content.Context context);
-    method public boolean isNightMode();
+  public final class AndroidNightModeBehaviorHandler implements com.vanniktech.ui.theming.night.NightModeBehaviorHandler {
     method public void updateBehavior(com.vanniktech.ui.theming.night.NightModeBehavior nightModeBehavior);
+    field public static final com.vanniktech.ui.theming.night.AndroidNightModeBehaviorHandler INSTANCE;
   }
 
-  public final class HardcodedNightModeHandler implements com.vanniktech.ui.theming.night.NightModeHandler {
-    ctor public HardcodedNightModeHandler(boolean isNightMode);
+  public final class ContextNightModeProvider implements com.vanniktech.ui.theming.night.NightModeProvider {
+    ctor public ContextNightModeProvider(android.content.Context context);
     method public boolean isNightMode();
-    method public void updateBehavior(com.vanniktech.ui.theming.night.NightModeBehavior nightModeBehavior);
+  }
+
+  public final class HardcodedNightModeProvider implements com.vanniktech.ui.theming.night.NightModeProvider {
+    ctor public HardcodedNightModeProvider(boolean isNightMode);
+    method public boolean isNightMode();
   }
 
   public enum NightModeBehavior {
@@ -202,9 +205,17 @@ package com.vanniktech.ui.theming.night {
     method public java.util.List<com.vanniktech.ui.theming.night.NightModeBehavior> list();
   }
 
-  public interface NightModeHandler {
-    method public boolean isNightMode();
+  public interface NightModeBehaviorHandler {
     method public void updateBehavior(com.vanniktech.ui.theming.night.NightModeBehavior nightModeBehavior);
+  }
+
+  public interface NightModeProvider {
+    method public boolean isNightMode();
+  }
+
+  public final class NoOpNightModeBehaviorHandler implements com.vanniktech.ui.theming.night.NightModeBehaviorHandler {
+    method public void updateBehavior(com.vanniktech.ui.theming.night.NightModeBehavior nightModeBehavior);
+    field public static final com.vanniktech.ui.theming.night.NoOpNightModeBehaviorHandler INSTANCE;
   }
 
 }
