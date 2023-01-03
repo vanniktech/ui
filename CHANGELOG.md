@@ -1,7 +1,9 @@
 # Change Log
 
-Version 0.4.0 *(In development)*
---------------------------------
+Version 0.4.0 *(2023-01-03)*
+----------------------------
+
+- API: Split NightModeHandler into NightModeBehaviorHandler & NightModeProvider. [\#4](https://github.com/vanniktech/ui/pull/4) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.3.0 *(2022-12-30)*
 ----------------------------
