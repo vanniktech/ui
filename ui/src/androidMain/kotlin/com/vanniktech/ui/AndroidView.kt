@@ -41,17 +41,28 @@ fun ProgressBar.themeProgressBar(
 fun RadioButton.themeRadioButton(
   color: Color,
   colorText: Color,
+  colorTextSecondary: Color,
 ) {
   buttonTintList = color.colorStateList()
-  setTextColor(colorText)
+
+  themeTextView(
+    color = color,
+    colorText = colorText,
+    colorTextSecondary = colorTextSecondary,
+  )
 }
 
 fun CheckBox.themeCheckBox(
   color: Color,
   colorText: Color,
+  colorTextSecondary: Color,
 ) {
   buttonTintList = color.colorStateList()
-  setTextColor(colorText)
+  themeTextView(
+    color = color,
+    colorText = colorText,
+    colorTextSecondary = colorTextSecondary,
+  )
 }
 
 fun MaterialAutoCompleteTextView.themeMaterialAutoCompleteTextView(

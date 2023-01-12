@@ -79,7 +79,7 @@ package com.vanniktech.ui {
   public final class AndroidViewKt {
     method public static void themeBottomNavigationView(com.google.android.material.bottomnavigation.BottomNavigationView, int colorBackground, int colorOnBackground, int colorOnBackgroundSecondary, int colorRipple);
     method public static void themeButton(com.google.android.material.button.MaterialButton, int colorBackground, int colorBackgroundDisabled, int colorText, int colorTextDisabled, int colorRipple);
-    method public static void themeCheckBox(android.widget.CheckBox, int color, int colorText);
+    method public static void themeCheckBox(android.widget.CheckBox, int color, int colorText, int colorTextSecondary);
     method public static void themeChip(com.google.android.material.chip.Chip, int colorBackground, int colorBackgroundSelected, int colorText, int colorTextSelected, int colorRipple);
     method public static void themeEditText(android.widget.EditText, int color, int colorText, int colorTextSecondary);
     method public static void themeExtendedFloatingActionButton(com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton, int color, int colorOn, int colorRipple);
@@ -87,7 +87,7 @@ package com.vanniktech.ui {
     method public static void themeMaterialAutoCompleteTextView(com.google.android.material.textfield.MaterialAutoCompleteTextView, int color, int colorText, int colorTextSecondary, int colorRipple, int colorDropDownBackground);
     method public static void themeOutlineButton(com.google.android.material.button.MaterialButton, int color, int colorDisabled, int colorRipple);
     method public static void themeProgressBar(android.widget.ProgressBar, int color);
-    method public static void themeRadioButton(android.widget.RadioButton, int color, int colorText);
+    method public static void themeRadioButton(android.widget.RadioButton, int color, int colorText, int colorTextSecondary);
     method public static void themeRecyclerView(androidx.recyclerview.widget.RecyclerView, int color);
     method public static void themeSeekBar(android.widget.SeekBar, int color);
     method public static void themeSwipeRefreshLayout(androidx.swiperefreshlayout.widget.SwipeRefreshLayout, int color, int backgroundColor);
