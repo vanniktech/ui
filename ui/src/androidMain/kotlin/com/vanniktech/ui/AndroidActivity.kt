@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
 
+fun Context.asActivity() = asActivityOrNull() ?: error("The passed Context is not an Activity.")
 fun Context.asActivityOrNull(): Activity? {
   var result: Context? = this
 
