@@ -2,6 +2,7 @@ package com.vanniktech.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import android.graphics.drawable.InsetDrawable
@@ -73,11 +74,21 @@ internal fun TextView.setHandlesColor(color: Color) {
   }
 }
 
+private class CursorDrawable(color: Color) : GradientDrawable(Orientation.BOTTOM_TOP, intArrayOf(color.argb, color.argb)) {
+  override fun setTint(tintColor: Int) {
+    // No-op https://github.com/material-components/material-components-android/issues/3255#issuecomment-1442269086
+  }
+
+  override fun setTintList(tint: ColorStateList?) {
+    // No-op https://github.com/material-components/material-components-android/issues/3255#issuecomment-1442269086
+  }
+}
+
 // https://stackoverflow.com/a/59269370/1979703
 @SuppressLint("PrivateApi")
 internal fun TextView.setCursorDrawableColor(color: Color) {
   if (SDK_INT >= 29) {
-    textCursorDrawable = GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, intArrayOf(color.argb, color.argb))
+    textCursorDrawable = CursorDrawable(color)
       .apply { setSize(2.spToPx(context).toInt(), textSize.toInt()) }
     return
   }
