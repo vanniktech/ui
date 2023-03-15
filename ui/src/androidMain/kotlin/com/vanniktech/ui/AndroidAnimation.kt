@@ -109,7 +109,7 @@ fun ImageView.animateTint(to: Color, mode: PorterDuff.Mode = PorterDuff.Mode.SRC
 
 const val DEFAULT_ANIMATION_DURATION = 300L
 
-fun TextView.animateText(text: String) {
+fun TextView.animateText(text: String?) {
   animateToGone {
     setText(text)
     animateToVisible()
