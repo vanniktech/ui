@@ -9,7 +9,7 @@ package com.vanniktech.ui {
     method public static inline void animate(android.view.ViewGroup, kotlin.jvm.functions.Function0<kotlin.Unit> body);
     method public static inline void animate(android.view.ViewGroup, kotlin.jvm.functions.Function0<kotlin.Unit> body, kotlin.jvm.functions.Function0<kotlin.Unit> onEndListener);
     method public static void animateBackgroundColor(android.view.View, int color, optional long speed);
-    method public static void animateText(android.widget.TextView, String text);
+    method public static void animateText(android.widget.TextView, String? text);
     method public static void animateTextColor(android.widget.TextView, int color, optional long speed);
     method public static void animateTint(android.widget.ImageView, int to, optional android.graphics.PorterDuff.Mode mode, optional long speed);
     method public static void animateToGone(android.view.View, optional long duration, optional kotlin.jvm.functions.Function0<kotlin.Unit>? onEnd);
