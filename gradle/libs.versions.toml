@@ -8,7 +8,7 @@ kotlin = "1.7.22"
 ktlint = "0.47.1"
 
 [libraries]
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.5.1" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.6.1" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version = "1.1.0" }
 androidx-webkit = { module = "androidx.webkit:webkit", version = "1.5.0" }
 flexbox = { module = "com.google.android.flexbox:flexbox", version = "3.0.0" }
