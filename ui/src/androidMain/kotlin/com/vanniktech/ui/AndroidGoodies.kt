@@ -18,7 +18,7 @@ import com.google.android.material.shape.MaterialShapeDrawable
 fun TextView.clearAppend(text: String?) {
   setText("") // First set it.
 
-  if (text != null) {
+  if (!text.isNullOrBlank()) {
     append(text) // Append to place the cursor.
   }
 }
