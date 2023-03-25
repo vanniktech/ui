@@ -14,3 +14,9 @@ dependencies {
 application {
   mainClass.set("com.vanniktech.ui.sample.jvm.UiJvmKt")
 }
+
+kotlin {
+  jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
+  }
+}
