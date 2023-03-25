@@ -13,6 +13,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.widget.TextViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.viewpager.widget.ViewPager
 import androidx.webkit.WebSettingsCompat
 import androidx.webkit.WebViewFeature
 import com.google.android.material.appbar.MaterialToolbar
@@ -199,6 +200,12 @@ fun EditText.themeEditText(
 
   setCursorDrawableColor(color)
   ViewCompat.setBackgroundTintList(this, color.colorStateList())
+}
+
+// https://stackoverflow.com/a/27343228/1979703
+fun ViewPager.themeViewPager(color: Color) {
+  (ViewPager::class.java.getFieldByName("mLeftEdge")?.get(this) as? EdgeEffect)?.color = color.argb
+  (ViewPager::class.java.getFieldByName("mRightEdge")?.get(this) as? EdgeEffect)?.color = color.argb
 }
 
 fun BottomNavigationView.themeBottomNavigationView(

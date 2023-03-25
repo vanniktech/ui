@@ -118,7 +118,7 @@ internal fun TextView.setCursorDrawableColor(color: Color) {
   }
 }
 
-private fun Class<*>.getFieldByName(vararg name: String): Field? {
+internal fun Class<*>.getFieldByName(vararg name: String): Field? {
   name.forEach {
     try {
       return this.getDeclaredField(it).apply { isAccessible = true }
