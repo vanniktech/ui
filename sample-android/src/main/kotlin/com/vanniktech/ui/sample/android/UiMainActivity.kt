@@ -12,6 +12,7 @@ import com.vanniktech.ui.themeWindow
 import com.vanniktech.ui.theming.night.AndroidNightModeBehaviorHandler
 import com.vanniktech.ui.theming.night.ContextNightModeProvider
 import com.vanniktech.ui.theming.night.NightModeBehavior
+import com.vanniktech.ui.view.ColorPickerStringsHardcoded
 
 class UiMainActivity : AppCompatActivity() {
   @SuppressLint("SetTextI18n")
@@ -44,5 +45,16 @@ class UiMainActivity : AppCompatActivity() {
     binding.nightModeYes.setOnClickListener { AndroidNightModeBehaviorHandler.updateBehavior(NightModeBehavior.YES) }
     binding.nightModeNo.setOnClickListener { AndroidNightModeBehaviorHandler.updateBehavior(NightModeBehavior.NO) }
     binding.nightModeFollowSystem.setOnClickListener { AndroidNightModeBehaviorHandler.updateBehavior(NightModeBehavior.FOLLOW_SYSTEM) }
+
+    binding.colorPickerView.setUp(
+      strings = ColorPickerStringsHardcoded(
+        red = "Red",
+        green = "Green",
+        blue = "Blue",
+        hex = "Hex",
+      ),
+      theming = theming,
+      selectedColor = theming.colorSecondary(),
+    )
   }
 }
