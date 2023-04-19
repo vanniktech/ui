@@ -147,11 +147,13 @@ package com.vanniktech.ui {
     method public final int getColor400();
     method public final int getColor500();
     method public final int getColor800();
+    method public final int getColorToolbar();
     method public static com.vanniktech.ui.MaterialColor valueOf(String name) throws java.lang.IllegalArgumentException;
     method public static com.vanniktech.ui.MaterialColor[] values();
     property public final int color400;
     property public final int color500;
     property public final int color800;
+    property public final int colorToolbar;
     enum_constant public static final com.vanniktech.ui.MaterialColor AMBER;
     enum_constant public static final com.vanniktech.ui.MaterialColor BLUE;
     enum_constant public static final com.vanniktech.ui.MaterialColor BLUE_GRAY;
