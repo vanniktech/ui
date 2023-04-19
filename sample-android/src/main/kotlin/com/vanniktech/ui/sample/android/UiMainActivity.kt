@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.vanniktech.ui.Color
+import com.vanniktech.ui.MaterialColor
 import com.vanniktech.ui.sample.android.databinding.ActivityMainBinding
 import com.vanniktech.ui.setBackgroundColor
 import com.vanniktech.ui.setTextColor
@@ -24,18 +25,12 @@ class UiMainActivity : AppCompatActivity() {
     binding.textView.text = Color.UNTINTED.toString()
 
     val isNightMode = ContextNightModeProvider(this).isNightMode()
-    val backgroundColor = when (isNightMode) {
-      true -> Color.BLACK
-      else -> Color.WHITE
-    }
+    val theming = UiSampleTheming(isNight = isNightMode, tint = MaterialColor.INDIGO.color500)
+
+    val backgroundColor = theming.colorBackgroundPrimary()
     binding.root.setBackgroundColor(backgroundColor)
 
-    binding.nightMode.setTextColor(
-      when (isNightMode) {
-        true -> Color.WHITE
-        else -> Color.BLACK
-      },
-    )
+    binding.nightMode.setTextColor(theming.colorText())
 
     window.themeWindow(
       statusBarColor = backgroundColor,
