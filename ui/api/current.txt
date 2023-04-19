@@ -107,16 +107,21 @@ package com.vanniktech.ui {
 
   @kotlin.jvm.JvmInline @kotlinx.parcelize.Parcelize @kotlinx.serialization.Serializable(with=ColorSerializer::class) public final value class Color implements com.vanniktech.ui.Parcelable {
     ctor public Color(int argb);
+    method public int brighten(float factor);
+    method public int copy(optional int alpha, optional int red, optional int green, optional int blue);
+    method public int copy(optional float alpha, optional float red, optional float green, optional float blue);
     method public int getArgb();
     method public String htmlRgbaString();
     method public boolean shouldUseBlackFont();
-    method public int with(float alpha);
-    method public int with(int alpha);
+    method @Deprecated public int with(float alpha);
+    method @Deprecated public int with(int alpha);
     property public final int argb;
     field public static final com.vanniktech.ui.Color.Companion Companion;
   }
 
   public static final class Color.Companion {
+    method public int fromArgb(int alpha, int red, int green, int blue);
+    method public com.vanniktech.ui.Color? fromHexOrNull(String hex);
     method public int getBLACK();
     method public int getTRANSPARENT();
     method public int getUNTINTED();
