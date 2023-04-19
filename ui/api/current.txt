@@ -203,6 +203,56 @@ package com.vanniktech.ui.theming {
     method public com.vanniktech.ui.theming.ThemingColor single(int color);
   }
 
+  public interface UiTheming {
+    method public int colorBackgroundPrimary();
+    method public int colorBackgroundSecondary();
+    method public int colorBackgroundTertiary();
+    method public int colorDivider();
+    method public int colorError();
+    method public int colorNavigation();
+    method public int colorOnPrimary();
+    method public int colorOnSecondary();
+    method public int colorPrimary();
+    method public int colorRipple();
+    method public int colorSecondary();
+    method public int colorSuccess();
+    method public int colorText();
+    method public int colorTextSecondary();
+    method public int colorWarning();
+    method public com.vanniktech.ui.theming.ThemingColor getColorBackgroundPrimary();
+    method public com.vanniktech.ui.theming.ThemingColor getColorBackgroundSecondary();
+    method public com.vanniktech.ui.theming.ThemingColor getColorBackgroundTertiary();
+    method public com.vanniktech.ui.theming.ThemingColor getColorDivider();
+    method public com.vanniktech.ui.theming.ThemingColor getColorError();
+    method public com.vanniktech.ui.theming.ThemingColor getColorNavigation();
+    method public com.vanniktech.ui.theming.ThemingColor getColorOnPrimary();
+    method public com.vanniktech.ui.theming.ThemingColor getColorOnSecondary();
+    method public com.vanniktech.ui.theming.ThemingColor getColorPrimary();
+    method public com.vanniktech.ui.theming.ThemingColor getColorRipple();
+    method public com.vanniktech.ui.theming.ThemingColor getColorSecondary();
+    method public com.vanniktech.ui.theming.ThemingColor getColorSuccess();
+    method public com.vanniktech.ui.theming.ThemingColor getColorText();
+    method public com.vanniktech.ui.theming.ThemingColor getColorTextSecondary();
+    method public com.vanniktech.ui.theming.ThemingColor getColorWarning();
+    method public boolean isNight();
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorBackgroundPrimary;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorBackgroundSecondary;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorBackgroundTertiary;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorDivider;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorError;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorNavigation;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorOnPrimary;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorOnSecondary;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorPrimary;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorRipple;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorSecondary;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorSuccess;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorText;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorTextSecondary;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorWarning;
+    property public abstract boolean isNight;
+  }
+
 }
 
 package com.vanniktech.ui.theming.night {
