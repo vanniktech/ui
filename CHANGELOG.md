@@ -1,7 +1,14 @@
 # Change Log
 
-Version 0.6.0 *(In development)*
---------------------------------
+Version 0.6.0 *(2023-04-19)*
+----------------------------
+
+- API: Color - new fromArgb, fromHexOrNull, brighten & copy methods. Better toString\(\) which omits full alpha. [\#35](https://github.com/vanniktech/ui/pull/35) ([vanniktech](https://github.com/vanniktech))
+- API: ColorPickerView to nicely pick a color. [\#37](https://github.com/vanniktech/ui/pull/37) ([vanniktech](https://github.com/vanniktech))
+- API: MaterialColor enum gets colorToolbar. [\#34](https://github.com/vanniktech/ui/pull/34) ([vanniktech](https://github.com/vanniktech))
+- API: MaterialColor enum with 400, 500 & 800 colors. [\#32](https://github.com/vanniktech/ui/pull/32) ([vanniktech](https://github.com/vanniktech))
+- API: UiTheming interface which is an abstraction for a Theming to leverage custom components. [\#36](https://github.com/vanniktech/ui/pull/36) ([vanniktech](https://github.com/vanniktech))
+- Technical: Use Kotlin 1.7.21 [\#33](https://github.com/vanniktech/ui/pull/33) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.5.0 *(2023-03-25)*
 ----------------------------
