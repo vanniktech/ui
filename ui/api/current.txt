@@ -143,6 +143,36 @@ package com.vanniktech.ui {
   public final class CommonParcelableAndroidApiKt {
   }
 
+  public enum MaterialColor {
+    method public final int getColor400();
+    method public final int getColor500();
+    method public final int getColor800();
+    method public static com.vanniktech.ui.MaterialColor valueOf(String name) throws java.lang.IllegalArgumentException;
+    method public static com.vanniktech.ui.MaterialColor[] values();
+    property public final int color400;
+    property public final int color500;
+    property public final int color800;
+    enum_constant public static final com.vanniktech.ui.MaterialColor AMBER;
+    enum_constant public static final com.vanniktech.ui.MaterialColor BLUE;
+    enum_constant public static final com.vanniktech.ui.MaterialColor BLUE_GRAY;
+    enum_constant public static final com.vanniktech.ui.MaterialColor BLUE_LIGHT;
+    enum_constant public static final com.vanniktech.ui.MaterialColor BROWN;
+    enum_constant public static final com.vanniktech.ui.MaterialColor CYAN;
+    enum_constant public static final com.vanniktech.ui.MaterialColor GRAY;
+    enum_constant public static final com.vanniktech.ui.MaterialColor GREEN;
+    enum_constant public static final com.vanniktech.ui.MaterialColor GREEN_LIGHT;
+    enum_constant public static final com.vanniktech.ui.MaterialColor INDIGO;
+    enum_constant public static final com.vanniktech.ui.MaterialColor LIME;
+    enum_constant public static final com.vanniktech.ui.MaterialColor ORANGE;
+    enum_constant public static final com.vanniktech.ui.MaterialColor ORANGE_DEEP;
+    enum_constant public static final com.vanniktech.ui.MaterialColor PINK;
+    enum_constant public static final com.vanniktech.ui.MaterialColor PURPLE;
+    enum_constant public static final com.vanniktech.ui.MaterialColor PURPLE_DEEP;
+    enum_constant public static final com.vanniktech.ui.MaterialColor RED;
+    enum_constant public static final com.vanniktech.ui.MaterialColor TEAL;
+    enum_constant public static final com.vanniktech.ui.MaterialColor YELLOW;
+  }
+
   public interface Parcelable {
   }
 
