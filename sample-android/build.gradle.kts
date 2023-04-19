@@ -3,6 +3,12 @@ plugins {
   id("org.jetbrains.kotlin.android")
 }
 
+kotlin {
+  jvmToolchain {
+    languageVersion.set(JavaLanguageVersion.of(11))
+  }
+}
+
 android {
   namespace = "com.vanniktech.ui.sample.android"
 
