@@ -7,8 +7,8 @@ data class ThemingColor(
   val dark: Color,
 ) {
   fun with(alpha: Float) = ThemingColor(
-    light = light.with(alpha = alpha),
-    dark = dark.with(alpha = alpha),
+    light = light.copy(alpha = alpha),
+    dark = dark.copy(alpha = alpha),
   )
 
   fun mapped(isNight: Boolean) = when (isNight) {
