@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+  <dimen name="ui_color_component_seekbar_height">24dp</dimen>
+  <dimen name="ui_color_component_seekbar_thumb_stroke_width">2dp</dimen>
+  <dimen name="ui_color_picker_preview_height">100dp</dimen>
+</resources>

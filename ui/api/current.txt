@@ -308,3 +308,53 @@ package com.vanniktech.ui.theming.night {
 
 }
 
+package com.vanniktech.ui.view {
+
+  public sealed interface ColorPickerStrings {
+  }
+
+  public final class ColorPickerStringsAndroid implements com.vanniktech.ui.view.ColorPickerStrings {
+    ctor public ColorPickerStringsAndroid(@StringRes int red, @StringRes int green, @StringRes int blue, @StringRes int hex);
+    method public int component1();
+    method public int component2();
+    method public int component3();
+    method public int component4();
+    method public com.vanniktech.ui.view.ColorPickerStringsAndroid copy(@StringRes int red, @StringRes int green, @StringRes int blue, @StringRes int hex);
+    method public int getBlue();
+    method public int getGreen();
+    method public int getHex();
+    method public int getRed();
+    property public final int blue;
+    property public final int green;
+    property public final int hex;
+    property public final int red;
+  }
+
+  public final class ColorPickerStringsHardcoded implements com.vanniktech.ui.view.ColorPickerStrings {
+    ctor public ColorPickerStringsHardcoded(String red, String green, String blue, String hex);
+    method public String component1();
+    method public String component2();
+    method public String component3();
+    method public String component4();
+    method public com.vanniktech.ui.view.ColorPickerStringsHardcoded copy(String red, String green, String blue, String hex);
+    method public String getBlue();
+    method public String getGreen();
+    method public String getHex();
+    method public String getRed();
+    property public final String blue;
+    property public final String green;
+    property public final String hex;
+    property public final String red;
+  }
+
+  public final class ColorPickerView extends android.widget.LinearLayout {
+    ctor public ColorPickerView(android.content.Context context, optional android.util.AttributeSet? attrs);
+    ctor public ColorPickerView(android.content.Context context);
+    method public int color();
+    method public void onRestoreInstanceState(com.vanniktech.ui.Parcelable? state);
+    method protected com.vanniktech.ui.Parcelable onSaveInstanceState();
+    method public void setUp(com.vanniktech.ui.theming.UiTheming theming, com.vanniktech.ui.view.ColorPickerStrings strings, int selectedColor);
+  }
+
+}
+
