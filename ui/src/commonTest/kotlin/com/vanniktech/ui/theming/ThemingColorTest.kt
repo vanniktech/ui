@@ -1,10 +1,23 @@
 package com.vanniktech.ui.theming
 
+import com.vanniktech.ui.Color
 import com.vanniktech.ui.color
+import kotlinx.serialization.json.Json
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class ThemingColorTest {
+  @Test fun serialization() {
+    val themingColor = ThemingColor(
+      light = Color.WHITE,
+      dark = Color.BLACK,
+    )
+
+    val json = "{\"light\":-1,\"dark\":-16777216}"
+    assertEquals(expected = json, actual = Json.encodeToString(ThemingColor.serializer(), themingColor))
+    assertEquals(expected = themingColor, actual = Json.decodeFromString(ThemingColor.serializer(), json))
+  }
+
   @Test fun single() {
     val color = 0xFFFFFFFF.color
     val themingColor = ThemingColor(light = color, dark = color)
