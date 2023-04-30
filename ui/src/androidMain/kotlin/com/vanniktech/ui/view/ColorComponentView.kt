@@ -1,6 +1,7 @@
 package com.vanniktech.ui.view
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.drawable.GradientDrawable
 import android.util.AttributeSet
 import android.view.LayoutInflater
@@ -12,7 +13,6 @@ import com.vanniktech.ui.COLOR_COMPONENT_RANGE
 import com.vanniktech.ui.Color
 import com.vanniktech.ui.ColorDrawable
 import com.vanniktech.ui.R
-import com.vanniktech.ui.R.dimen
 import com.vanniktech.ui.clearAppend
 import com.vanniktech.ui.colorStateList
 import com.vanniktech.ui.databinding.UiViewColorComponentBinding
@@ -53,14 +53,6 @@ internal class ColorComponentView @JvmOverloads constructor(
 
     binding.seekBar.setPadding(height / 2, 0, height / 2, 0)
     binding.seekBar.progressDrawable = ColorDrawable(Color.TRANSPARENT)
-    binding.seekBar.thumb = GradientDrawable().apply {
-      shape = GradientDrawable.OVAL
-      color = Color.TRANSPARENT.colorStateList()
-      cornerRadius = radius
-      setSize(height, height)
-      setStroke(resources.getDimensionPixelSize(dimen.ui_color_component_seekbar_thumb_stroke_width), Color.WHITE.colorStateList())
-    }
-
     binding.seekBar.max = COLOR_COMPONENT_RANGE.last
     binding.seekBar.progress = initialValue
     binding.seekBar.setOnSeekBarChangeListener(object : OnSeekBarChangeListener {
@@ -98,7 +90,21 @@ internal class ColorComponentView @JvmOverloads constructor(
     }
   }
 
-  fun changeBackground(from: Color, to: Color) {
+  fun changeBackground(
+    from: Color,
+    to: Color,
+    thumbColor: ColorStateList,
+  ) {
+    binding.seekBar.thumbTintList = thumbColor
+    binding.seekBar.thumb = GradientDrawable().apply {
+      shape = GradientDrawable.OVAL
+      color = Color.TRANSPARENT.colorStateList()
+      cornerRadius = radius
+      setSize(height, height)
+
+      setStroke(resources.getDimensionPixelSize(R.dimen.ui_color_component_seekbar_thumb_stroke_width), thumbColor)
+    }
+
     binding.seekBar.background = GradientDrawable(GradientDrawable.Orientation.LEFT_RIGHT, intArrayOf(from.argb, to.argb)).apply {
       cornerRadii = floatArrayOf(radius, radius, radius, radius, radius, radius, radius, radius)
     }

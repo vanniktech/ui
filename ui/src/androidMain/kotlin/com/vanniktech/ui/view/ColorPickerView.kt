@@ -172,30 +172,34 @@ class ColorPickerView @JvmOverloads constructor(
     updateEditText: Boolean = true,
   ) {
     color = updated
+
+    val highlightColor = when {
+      updated.shouldUseBlackFont() -> Color.BLACK
+      else -> Color.WHITE
+    }.colorStateList()
+
     binding.preview.background = GradientDrawable().apply {
       color = updated.colorStateList()
       shape = GradientDrawable.RECTANGLE
       val size = context.resources.getDimensionPixelSize(R.dimen.ui_color_picker_preview_height)
       cornerRadius = size / 8f
+      setStroke(resources.getDimensionPixelSize(R.dimen.ui_color_picker_preview_stroke_width), highlightColor)
     }
 
     binding.red.changeBackground(
       updated.copy(red = COLOR_COMPONENT_RANGE.first),
-      updated.copy(
-        red = COLOR_COMPONENT_RANGE.last,
-      ),
+      updated.copy(red = COLOR_COMPONENT_RANGE.last),
+      highlightColor,
     )
     binding.green.changeBackground(
       updated.copy(green = COLOR_COMPONENT_RANGE.first),
-      updated.copy(
-        green = COLOR_COMPONENT_RANGE.last,
-      ),
+      updated.copy(green = COLOR_COMPONENT_RANGE.last),
+      highlightColor,
     )
     binding.blue.changeBackground(
       updated.copy(blue = COLOR_COMPONENT_RANGE.first),
-      updated.copy(
-        blue = COLOR_COMPONENT_RANGE.last,
-      ),
+      updated.copy(blue = COLOR_COMPONENT_RANGE.last),
+      highlightColor,
     )
 
     if (updateEditText) {
