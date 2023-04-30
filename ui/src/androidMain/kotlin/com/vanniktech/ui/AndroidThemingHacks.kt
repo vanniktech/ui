@@ -128,6 +128,8 @@ internal fun Class<*>.getFieldByName(vararg name: String): Field? {
   return null
 }
 
+fun Drawable.setTint(color: Color) = setTint(color.argb)
+
 fun Drawable.tinted(color: Color): Drawable = when (this) {
   is VectorDrawableCompat -> this.apply { setTintList(color.colorStateList()) }
   is VectorDrawable -> this.apply { setTintList(color.colorStateList()) }

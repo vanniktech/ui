@@ -73,6 +73,7 @@ package com.vanniktech.ui {
   }
 
   public final class AndroidThemingHacksKt {
+    method public static void setTint(android.graphics.drawable.Drawable, int color);
     method public static android.graphics.drawable.Drawable tinted(android.graphics.drawable.Drawable, int color);
   }
 
