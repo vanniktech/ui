@@ -190,7 +190,7 @@ package com.vanniktech.ui {
 
 package com.vanniktech.ui.theming {
 
-  public final class ThemingColor {
+  @kotlinx.serialization.Serializable(with=ThemingColorSerializer::class) public final class ThemingColor {
     ctor public ThemingColor(int light, int dark);
     method public int component1-oEAH0UE();
     method public int component2-oEAH0UE();
@@ -206,6 +206,14 @@ package com.vanniktech.ui.theming {
 
   public static final class ThemingColor.Companion {
     method public com.vanniktech.ui.theming.ThemingColor single(int color);
+  }
+
+  public final class ThemingColorSerializer implements kotlinx.serialization.KSerializer<com.vanniktech.ui.theming.ThemingColor> {
+    method public com.vanniktech.ui.theming.ThemingColor deserialize(kotlinx.serialization.encoding.Decoder decoder);
+    method public kotlinx.serialization.descriptors.SerialDescriptor getDescriptor();
+    method public void serialize(kotlinx.serialization.encoding.Encoder encoder, com.vanniktech.ui.theming.ThemingColor value);
+    property public kotlinx.serialization.descriptors.SerialDescriptor descriptor;
+    field public static final com.vanniktech.ui.theming.ThemingColorSerializer INSTANCE;
   }
 
   public interface UiTheming {

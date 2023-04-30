@@ -5,12 +5,12 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class ColorTest {
-  @Test fun serialize() {
-    assertEquals(expected = "-10289408", actual = Json.encodeToString(Color.serializer(), Color.UNTINTED))
-  }
+  @Test fun serialization() {
+    val color = Color.UNTINTED
+    val json = "-10289408"
 
-  @Test fun deserialize() {
-    assertEquals(expected = Color.UNTINTED, actual = Json.decodeFromString(Color.serializer(), "-10289408"))
+    assertEquals(expected = json, actual = Json.encodeToString(Color.serializer(), color))
+    assertEquals(expected = color, actual = Json.decodeFromString(Color.serializer(), json))
   }
 
   @Test fun untinted() {
