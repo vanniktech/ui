@@ -87,12 +87,12 @@ fun MaterialToolbar.themeToolbar(
   colorToolbar: Color,
   colorOnToolbar: Color,
   colorOnToolbarSecondary: Color,
-  navigationIconTint: Color = colorOnToolbar,
+  colorNavigationIcon: Color,
 ) {
   setBackgroundColor(colorToolbar)
   setTitleTextColor(colorOnToolbar.argb)
   setSubtitleTextColor(colorOnToolbarSecondary.argb)
-  setNavigationIconTint(navigationIconTint.argb)
+  setNavigationIconTint(colorNavigationIcon.argb)
 }
 
 fun TabLayout.themeTabLayout(
