@@ -61,17 +61,6 @@ class ColorTest {
     assertEquals(expected = "#242424", actual = 0xFF242424.color.toString())
   }
 
-  @Suppress("DEPRECATION")
-  @Test fun with() {
-    // Alpha present.
-    assertEquals(expected = "#66181818", actual = 0xCC181818.color.with(alpha = 102).toString())
-    assertEquals(expected = "#66181818", actual = 0xCC181818.color.with(alpha = 0.4f).toString())
-
-    // No alpha.
-    assertEquals(expected = "#66181818", actual = 0x181818.color.with(alpha = 102).toString())
-    assertEquals(expected = "#66181818", actual = 0x181818.color.with(alpha = 0.4f).toString())
-  }
-
   @Test fun shouldUseBlackFont() {
     mapOf(
       0xFF0000.color to false,

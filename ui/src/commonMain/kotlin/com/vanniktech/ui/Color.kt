@@ -33,12 +33,6 @@ internal const val HEX_PREFIX = "#"
 
 @Serializable(ColorSerializer::class)
 @Parcelize @JvmInline value class Color(val argb: Int) : Parcelable {
-  @Deprecated("Please use the copy function", replaceWith = ReplaceWith("copy(alpha = alpha)"))
-  fun with(alpha: Float) = copy(alpha = alpha)
-
-  @Deprecated("Please use the copy function", replaceWith = ReplaceWith("copy(alpha = alpha)"))
-  fun with(alpha: Int) = copy(alpha = alpha)
-
   override fun toString(): String {
     var number = argb
     var buffer = ""
