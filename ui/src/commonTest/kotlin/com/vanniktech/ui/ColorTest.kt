@@ -75,8 +75,8 @@ class ColorTest {
 
   @Test fun fromHexOrNull() {
     assertEquals(expected = Color.UNTINTED, actual = Color.fromHexOrNull("#FF62FF00"))
-    assertEquals(expected = Color(0xFF456456.toInt()), actual = Color.fromHexOrNull("#456"))
-    assertEquals(expected = Color(0x12341234), actual = Color.fromHexOrNull("#1234"))
+    assertEquals(expected = Color(0xFF445566.toInt()), actual = Color.fromHexOrNull("#456"))
+    assertEquals(expected = Color(0x11223344), actual = Color.fromHexOrNull("#1234"))
     assertEquals(expected = Color(0xFF123456.toInt()), actual = Color.fromHexOrNull("#123456"))
     assertEquals(expected = Color(0xFF123456.toInt()), actual = Color.fromHexOrNull("123456"))
     assertEquals(expected = null, actual = Color.fromHexOrNull("S"))
