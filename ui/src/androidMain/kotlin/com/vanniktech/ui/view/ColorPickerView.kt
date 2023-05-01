@@ -14,8 +14,8 @@ import com.vanniktech.ui.FLOAT_VALUE
 import com.vanniktech.ui.HEX_PREFIX
 import com.vanniktech.ui.Parcelable
 import com.vanniktech.ui.R
-import com.vanniktech.ui.clearAppend
 import com.vanniktech.ui.colorStateList
+import com.vanniktech.ui.cursorAtEndWithText
 import com.vanniktech.ui.databinding.UiViewColorPickerBinding
 import com.vanniktech.ui.hideKeyboardAndFocus
 import com.vanniktech.ui.themeEditText
@@ -204,7 +204,7 @@ class ColorPickerView @JvmOverloads constructor(
 
     if (updateEditText) {
       binding.hexEditText.removeTextChangedListener(hexEditTextWatcher)
-      binding.hexEditText.clearAppend(updated.toString().removePrefix(HEX_PREFIX))
+      binding.hexEditText.cursorAtEndWithText(updated.toString().removePrefix(HEX_PREFIX))
       binding.hexEditText.addTextChangedListener(hexEditTextWatcher)
     }
   }

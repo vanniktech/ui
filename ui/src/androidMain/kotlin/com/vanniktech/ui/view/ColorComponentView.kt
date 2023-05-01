@@ -13,8 +13,8 @@ import com.vanniktech.ui.COLOR_COMPONENT_RANGE
 import com.vanniktech.ui.Color
 import com.vanniktech.ui.ColorDrawable
 import com.vanniktech.ui.R
-import com.vanniktech.ui.clearAppend
 import com.vanniktech.ui.colorStateList
+import com.vanniktech.ui.cursorAtEndWithText
 import com.vanniktech.ui.databinding.UiViewColorComponentBinding
 import com.vanniktech.ui.hideKeyboardAndFocus
 import com.vanniktech.ui.themeEditText
@@ -62,7 +62,7 @@ internal class ColorComponentView @JvmOverloads constructor(
         fromUser: Boolean,
       ) {
         if (fromUser) {
-          binding.editText.clearAppend(progress.toString())
+          binding.editText.cursorAtEndWithText(progress.toString())
         }
       }
 
@@ -77,7 +77,7 @@ internal class ColorComponentView @JvmOverloads constructor(
       colorTextSecondary = theming.colorTextSecondary(),
     )
 
-    binding.editText.clearAppend(initialValue.toString())
+    binding.editText.cursorAtEndWithText(initialValue.toString())
     binding.editText.filters = arrayOf(ColorComponentInputFilter)
     binding.editText.addTextChangedListener {
       val string = it?.toString()

@@ -31,3 +31,8 @@ fun Context.hideKeyboard(view: View) {
 }
 
 fun EditText.cursorAtEnd() = setSelection(text.length)
+
+fun EditText.cursorAtEndWithText(text: String?) {
+  setText(text)
+  cursorAtEnd()
+}
