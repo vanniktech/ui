@@ -8,4 +8,5 @@ import com.vanniktech.ui.Parcelize
 @Parcelize internal class ColorPickerViewState(
   val superSavedState: Parcelable?,
   val color: Color,
+  val supportsAlpha: Boolean,
 ) : View.BaseSavedState(superSavedState), Parcelable

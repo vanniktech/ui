@@ -13,6 +13,7 @@ import com.vanniktech.ui.theming.night.AndroidNightModeBehaviorHandler
 import com.vanniktech.ui.theming.night.ContextNightModeProvider
 import com.vanniktech.ui.theming.night.NightModeBehavior
 import com.vanniktech.ui.view.ColorPickerStringsHardcoded
+import kotlin.random.Random
 
 class UiMainActivity : AppCompatActivity() {
   @SuppressLint("SetTextI18n")
@@ -48,6 +49,7 @@ class UiMainActivity : AppCompatActivity() {
 
     binding.colorPickerView.setUp(
       strings = ColorPickerStringsHardcoded(
+        alpha = "Alpha".takeIf { Random.nextBoolean() },
         red = "Red",
         green = "Green",
         blue = "Blue",

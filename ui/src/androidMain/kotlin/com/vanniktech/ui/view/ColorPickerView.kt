@@ -21,10 +21,13 @@ import com.vanniktech.ui.hideKeyboardAndFocus
 import com.vanniktech.ui.themeEditText
 import com.vanniktech.ui.themeTextView
 import com.vanniktech.ui.theming.UiTheming
+import com.vanniktech.ui.visibleGone
 
 sealed interface ColorPickerStrings
 
 data class ColorPickerStringsHardcoded(
+  /** Null means alpha won't be configurable. */
+  val alpha: String?,
   val red: String,
   val green: String,
   val blue: String,
@@ -32,6 +35,8 @@ data class ColorPickerStringsHardcoded(
 ) : ColorPickerStrings
 
 data class ColorPickerStringsAndroid(
+  /** 0 is optional and alpha won't be configurable. */
+  @StringRes val alpha: Int,
   @StringRes val red: Int,
   @StringRes val green: Int,
   @StringRes val blue: Int,
@@ -45,32 +50,27 @@ class ColorPickerView @JvmOverloads constructor(
   private val binding = UiViewColorPickerBinding.inflate(LayoutInflater.from(context), this)
 
   private var color: Color = Color.UNTINTED
+  private var supportsAlpha = false
 
   private val hexEditTextWatcher = object : TextWatcher {
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
     override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {
       // To support copy and paste. This is part II.
-      if (s.isNotEmpty() && s.length == count) {
+      if (s.isNotEmpty() && s.length == count && before <= count) {
         val color = Color.fromHexOrNull(s.substring(before, count))
 
         if (color != null) {
-          val hexString = color.unified.hexString()
-          binding.hexEditText.setText(hexString)
-          binding.hexEditText.setSelection(hexString.length)
+          updateColor(updated = color.unified, updateHexEditText = false)
         }
       }
     }
 
     override fun afterTextChanged(s: Editable?) {
-      val string = s?.toString()?.trim()
-      val color = when (string?.length) {
-        // We only want to update the UI when we have 3 or 6 digits.
-        3, 6 -> Color.fromHexOrNull(HEX_PREFIX + string)
-        else -> null
-      }
+      val string = s?.toString()?.trim().orEmpty()
+      val color = inferColor(string, supportsAlpha)
 
       if (color != null) {
-        updateColor(color, updateEditText = false)
+        updateColor(color, updateHexEditText = false)
       }
     }
   }
@@ -83,7 +83,7 @@ class ColorPickerView @JvmOverloads constructor(
 
   override fun onSaveInstanceState(): Parcelable {
     val superState = super.onSaveInstanceState()
-    return ColorPickerViewState(superState, color)
+    return ColorPickerViewState(superState, color, supportsAlpha)
   }
 
   override fun onRestoreInstanceState(state: Parcelable?) {
@@ -91,18 +91,38 @@ class ColorPickerView @JvmOverloads constructor(
     super.onRestoreInstanceState(myState?.superSavedState ?: state)
 
     color = myState?.color ?: Color.UNTINTED
-    updateColor(color)
+    supportsAlpha = myState?.supportsAlpha ?: false
+    updateColor(updated = color)
   }
 
-  // We don't support alpha.
-  internal val Color.unified get() = copy(alpha = FLOAT_VALUE / FLOAT_VALUE)
+  internal val Color.unified get() = when (supportsAlpha) {
+    true -> this
+    else -> copy(alpha = FLOAT_VALUE / FLOAT_VALUE)
+  }
 
   fun setUp(
     theming: UiTheming,
     strings: ColorPickerStrings,
     selectedColor: Color,
   ) {
-    updateColor(selectedColor.unified)
+    val alphaHeader = when (strings) {
+      is ColorPickerStringsHardcoded -> strings.alpha
+      is ColorPickerStringsAndroid -> if (strings.alpha != 0) context.getString(strings.alpha) else null
+    }
+
+    supportsAlpha = alphaHeader != null
+    updateColor(updated = selectedColor.unified)
+
+    binding.alpha.visibleGone(supportsAlpha)
+
+    if (alphaHeader != null) {
+      binding.alpha.setUp(
+        header = alphaHeader,
+        initialValue = color.alpha(),
+        theming = theming,
+        delegate = ColorPickerColorComponentDelegate(this),
+      )
+    }
 
     binding.red.setUp(
       header = when (strings) {
@@ -111,10 +131,7 @@ class ColorPickerView @JvmOverloads constructor(
       },
       initialValue = color.red(),
       theming = theming,
-      onValueChanged = {
-        hideKeyboardAndFocus()
-        updateColor(color.copy(red = it))
-      },
+      delegate = ColorPickerColorComponentDelegate(this),
     )
 
     binding.green.setUp(
@@ -124,10 +141,7 @@ class ColorPickerView @JvmOverloads constructor(
       },
       initialValue = color.green(),
       theming = theming,
-      onValueChanged = {
-        hideKeyboardAndFocus()
-        updateColor(color.copy(green = it))
-      },
+      delegate = ColorPickerColorComponentDelegate(this),
     )
 
     binding.blue.setUp(
@@ -137,10 +151,7 @@ class ColorPickerView @JvmOverloads constructor(
       },
       initialValue = color.blue(),
       theming = theming,
-      onValueChanged = {
-        hideKeyboardAndFocus()
-        updateColor(color.copy(blue = it))
-      },
+      delegate = ColorPickerColorComponentDelegate(this),
     )
 
     binding.hexHeader.text = when (strings) {
@@ -152,7 +163,7 @@ class ColorPickerView @JvmOverloads constructor(
       colorText = theming.colorText(),
       colorTextSecondary = theming.colorTextSecondary(),
     )
-    binding.hexEditText.filters = arrayOf(ColorHexInputFilter)
+    binding.hexEditText.filters = arrayOf(ColorHexInputFilter(supportsAlpha))
     binding.hexEditText.themeEditText(
       color = theming.colorSecondary(),
       colorText = theming.colorText(),
@@ -160,16 +171,9 @@ class ColorPickerView @JvmOverloads constructor(
     )
   }
 
-  private fun hideKeyboardAndFocus() {
-    binding.hexEditText.hideKeyboardAndFocus()
-    binding.red.hideKeyboardAndFocus()
-    binding.green.hideKeyboardAndFocus()
-    binding.blue.hideKeyboardAndFocus()
-  }
-
   internal fun updateColor(
     updated: Color,
-    updateEditText: Boolean = true,
+    updateHexEditText: Boolean = true,
   ) {
     color = updated
 
@@ -187,25 +191,61 @@ class ColorPickerView @JvmOverloads constructor(
     }
 
     binding.red.changeBackground(
-      updated.copy(red = COLOR_COMPONENT_RANGE.first),
-      updated.copy(red = COLOR_COMPONENT_RANGE.last),
-      highlightColor,
-    )
-    binding.green.changeBackground(
-      updated.copy(green = COLOR_COMPONENT_RANGE.first),
-      updated.copy(green = COLOR_COMPONENT_RANGE.last),
-      highlightColor,
-    )
-    binding.blue.changeBackground(
-      updated.copy(blue = COLOR_COMPONENT_RANGE.first),
-      updated.copy(blue = COLOR_COMPONENT_RANGE.last),
-      highlightColor,
+      from = updated.copy(red = COLOR_COMPONENT_RANGE.first),
+      to = updated.copy(red = COLOR_COMPONENT_RANGE.last),
+      thumbColor = highlightColor,
+      value = updated.red(),
     )
 
-    if (updateEditText) {
+    binding.green.changeBackground(
+      from = updated.copy(green = COLOR_COMPONENT_RANGE.first),
+      to = updated.copy(green = COLOR_COMPONENT_RANGE.last),
+      thumbColor = highlightColor,
+      value = updated.green(),
+    )
+
+    binding.blue.changeBackground(
+      from = updated.copy(blue = COLOR_COMPONENT_RANGE.first),
+      to = updated.copy(blue = COLOR_COMPONENT_RANGE.last),
+      thumbColor = highlightColor,
+      value = updated.blue(),
+    )
+
+    if (supportsAlpha) {
+      binding.alpha.changeBackground(
+        from = updated.copy(alpha = COLOR_COMPONENT_RANGE.first),
+        to = updated.copy(alpha = COLOR_COMPONENT_RANGE.last),
+        thumbColor = highlightColor,
+        value = updated.alpha(),
+      )
+    }
+
+    if (updateHexEditText) {
       binding.hexEditText.removeTextChangedListener(hexEditTextWatcher)
-      binding.hexEditText.cursorAtEndWithText(updated.toString().removePrefix(HEX_PREFIX))
+      binding.hexEditText.cursorAtEndWithText(text = updated.toString().removePrefix(HEX_PREFIX))
       binding.hexEditText.addTextChangedListener(hexEditTextWatcher)
+    }
+  }
+
+  internal class ColorPickerColorComponentDelegate(
+    private val colorPickerView: ColorPickerView,
+  ) : ColorComponentDelegate {
+    override fun onComponentChanged(componentChange: ColorComponentChange) {
+      val color = when (val origin = componentChange.origin) {
+        colorPickerView.binding.alpha -> colorPickerView.color.copy(alpha = componentChange.value)
+        colorPickerView.binding.red -> colorPickerView.color.copy(red = componentChange.value)
+        colorPickerView.binding.green -> colorPickerView.color.copy(green = componentChange.value)
+        colorPickerView.binding.blue -> colorPickerView.color.copy(blue = componentChange.value)
+        else -> error("Should never happen $origin")
+      }
+      colorPickerView.updateColor(updated = color)
+    }
+
+    override fun hideKeyboardAndFocus() {
+      colorPickerView.binding.hexEditText.hideKeyboardAndFocus()
+      colorPickerView.binding.red.hideKeyboardAndFocus()
+      colorPickerView.binding.green.hideKeyboardAndFocus()
+      colorPickerView.binding.blue.hideKeyboardAndFocus()
     }
   }
 }
