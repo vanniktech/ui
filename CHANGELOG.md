@@ -1,7 +1,18 @@
 # Change Log
 
-Version 0.7.0 *(In development)*
---------------------------------
+Version 0.7.0 *(2023-05-01)*
+----------------------------
+
+- API: Drawable.setTint\(Color\) [\#41](https://github.com/vanniktech/ui/pull/41) ([vanniktech](https://github.com/vanniktech))
+- API: EditText.cursorAtEndWithText which replaces TextView.clearAppend [\#49](https://github.com/vanniktech/ui/pull/49) ([vanniktech](https://github.com/vanniktech))
+- API: MaterialToolbar.themeToolbar allows tinting navigation icon. [\#43](https://github.com/vanniktech/ui/pull/43) ([vanniktech](https://github.com/vanniktech))
+- API: Support alpha in ColorPickerView & fix many bugs. [\#50](https://github.com/vanniktech/ui/pull/50) ([vanniktech](https://github.com/vanniktech))
+- API: ThemingColor is now also Serializable by KotlinX. [\#42](https://github.com/vanniktech/ui/pull/42) ([vanniktech](https://github.com/vanniktech))
+- Behavior Change: ColorPickerView - change stroke color for better contrast & stroke preview box. [\#44](https://github.com/vanniktech/ui/pull/44) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Remove deprecated methods from previous release. [\#46](https://github.com/vanniktech/ui/pull/46) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Require colorNavigationIcon to set when theming MaterialToolbar. [\#45](https://github.com/vanniktech/ui/pull/45) ([vanniktech](https://github.com/vanniktech))
+- Bug fix: Fix parsing in Color.fromHexOrNull for 3 and 4 digit colors. [\#48](https://github.com/vanniktech/ui/pull/48) ([vanniktech](https://github.com/vanniktech))
+- Bug fix: Make UiMaterialCalendarTheme & UiTimePickerTheme styles public. [\#47](https://github.com/vanniktech/ui/pull/47) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.6.0 *(2023-04-19)*
 ----------------------------
