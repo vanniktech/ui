@@ -114,8 +114,8 @@ internal const val HEX_PREFIX = "#"
     fun fromHexOrNull(hex: String): Color? {
       val cleaned = hex.removePrefix(HEX_PREFIX)
       val string = when (cleaned.length) {
-        3 -> "FF$cleaned$cleaned"
-        4 -> "$cleaned$cleaned"
+        3 -> "FF${cleaned.map { "$it$it" }.joinToString(separator = "")}"
+        4 -> cleaned.map { "$it$it" }.joinToString(separator = "")
         6 -> "FF$cleaned"
         8 -> cleaned
         else -> null
