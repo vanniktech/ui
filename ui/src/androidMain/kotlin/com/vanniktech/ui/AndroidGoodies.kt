@@ -15,18 +15,6 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.shape.MaterialShapeDrawable
 
-@Deprecated(
-  "This does two text changes which isn't ideal. For EditText, please use cursorAtEndWithText. For TextView, you can just set the text.",
-  replaceWith = ReplaceWith("this.cursorAtEndWithText(text = text)"),
-)
-fun TextView.clearAppend(text: String?) {
-  setText("") // First set it.
-
-  if (!text.isNullOrBlank()) {
-    append(text) // Append to place the cursor.
-  }
-}
-
 fun View.backgroundColor() = ((background as? ColorDrawable)?.color ?: (background as? MaterialShapeDrawable)?.resolvedTintColor)?.color
 
 fun View.click() {
