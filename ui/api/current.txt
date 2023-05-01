@@ -48,7 +48,6 @@ package com.vanniktech.ui {
   public final class AndroidGoodiesKt {
     method public static com.vanniktech.ui.Color? backgroundColor(android.view.View);
     method public static java.util.List<android.view.View> children(android.view.ViewGroup);
-    method @Deprecated public static void clearAppend(android.widget.TextView, String? text);
     method public static void click(android.view.View);
     method public static android.view.ViewGroup parentViewGroup(android.view.View);
     method public static void setText(androidx.appcompat.app.ActionBar, CharSequence? string);
@@ -318,17 +317,20 @@ package com.vanniktech.ui.theming.night {
 
 package com.vanniktech.ui.view {
 
+  public final class ColorHexInputFilterKt {
+  }
+
   public sealed interface ColorPickerStrings {
   }
 
   public final class ColorPickerStringsAndroid implements com.vanniktech.ui.view.ColorPickerStrings {
-    ctor public ColorPickerStringsAndroid(@StringRes int red, @StringRes int green, @StringRes int blue, @StringRes int alpha, @StringRes int hex);
+    ctor public ColorPickerStringsAndroid(@StringRes int alpha, @StringRes int red, @StringRes int green, @StringRes int blue, @StringRes int hex);
     method public int component1();
     method public int component2();
     method public int component3();
     method public int component4();
     method public int component5();
-    method public com.vanniktech.ui.view.ColorPickerStringsAndroid copy(@StringRes int red, @StringRes int green, @StringRes int blue, @StringRes int alpha, @StringRes int hex);
+    method public com.vanniktech.ui.view.ColorPickerStringsAndroid copy(@StringRes int alpha, @StringRes int red, @StringRes int green, @StringRes int blue, @StringRes int hex);
     method public int getAlpha();
     method public int getBlue();
     method public int getGreen();
@@ -342,13 +344,13 @@ package com.vanniktech.ui.view {
   }
 
   public final class ColorPickerStringsHardcoded implements com.vanniktech.ui.view.ColorPickerStrings {
-    ctor public ColorPickerStringsHardcoded(String red, String green, String blue, String? alpha, String hex);
-    method public String component1();
+    ctor public ColorPickerStringsHardcoded(String? alpha, String red, String green, String blue, String hex);
+    method public String? component1();
     method public String component2();
     method public String component3();
-    method public String? component4();
+    method public String component4();
     method public String component5();
-    method public com.vanniktech.ui.view.ColorPickerStringsHardcoded copy(String red, String green, String blue, String? alpha, String hex);
+    method public com.vanniktech.ui.view.ColorPickerStringsHardcoded copy(String? alpha, String red, String green, String blue, String hex);
     method public String? getAlpha();
     method public String getBlue();
     method public String getGreen();
