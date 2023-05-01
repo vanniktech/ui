@@ -38,6 +38,7 @@ package com.vanniktech.ui {
 
   public final class AndroidEditTextExtensionsKt {
     method public static void cursorAtEnd(android.widget.EditText);
+    method public static void cursorAtEndWithText(android.widget.EditText, String? text);
     method public static void hideKeyboard(android.app.Activity);
     method public static void hideKeyboard(android.content.Context, android.view.View view);
     method public static void hideKeyboardAndFocus(android.widget.EditText);
@@ -47,7 +48,7 @@ package com.vanniktech.ui {
   public final class AndroidGoodiesKt {
     method public static com.vanniktech.ui.Color? backgroundColor(android.view.View);
     method public static java.util.List<android.view.View> children(android.view.ViewGroup);
-    method public static void clearAppend(android.widget.TextView, String? text);
+    method @Deprecated public static void clearAppend(android.widget.TextView, String? text);
     method public static void click(android.view.View);
     method public static android.view.ViewGroup parentViewGroup(android.view.View);
     method public static void setText(androidx.appcompat.app.ActionBar, CharSequence? string);
