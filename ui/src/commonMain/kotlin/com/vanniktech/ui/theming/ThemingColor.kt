@@ -1,6 +1,8 @@
 package com.vanniktech.ui.theming
 
 import com.vanniktech.ui.Color
+import com.vanniktech.ui.Parcelable
+import com.vanniktech.ui.Parcelize
 import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
@@ -57,10 +59,10 @@ object ThemingColorSerializer : KSerializer<ThemingColor> {
 }
 
 @Serializable(ThemingColorSerializer::class)
-data class ThemingColor(
+@Parcelize data class ThemingColor(
   val light: Color,
   val dark: Color,
-) {
+) : Parcelable {
   fun with(alpha: Float) = ThemingColor(
     light = light.copy(alpha = alpha),
     dark = dark.copy(alpha = alpha),
