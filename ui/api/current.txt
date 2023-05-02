@@ -189,7 +189,7 @@ package com.vanniktech.ui {
 
 package com.vanniktech.ui.theming {
 
-  @kotlinx.serialization.Serializable(with=ThemingColorSerializer::class) public final class ThemingColor {
+  @kotlinx.parcelize.Parcelize @kotlinx.serialization.Serializable(with=ThemingColorSerializer::class) public final class ThemingColor implements com.vanniktech.ui.Parcelable {
     ctor public ThemingColor(int light, int dark);
     method public int component1-oEAH0UE();
     method public int component2-oEAH0UE();
