@@ -58,6 +58,9 @@ data class UiSampleTheming(
   override fun colorRipple() = colorRipple.mapped(isNight)
   override val colorRipple get() = ThemingColor(light = 0x33FFFFFF.color, dark = 0x1F000000.color)
 
-  override fun colorNavigation() = colorNavigation.mapped(isNight)
-  override val colorNavigation get() = ThemingColor(light = 0xFFF0F0F0.color, dark = 0xFF1E1E1E.color)
+  override fun colorTopNavigation() = colorTopNavigation.mapped(isNight)
+  override val colorTopNavigation get() = ThemingColor(light = 0xFFF0F0F0.color, dark = 0xFF1E1E1E.color)
+
+  override fun colorBottomNavigation() = colorBottomNavigation.mapped(isNight)
+  override val colorBottomNavigation get() = ThemingColor(light = 0xFFF0F0F0.color, dark = 0xFF1E1E1E.color)
 }
