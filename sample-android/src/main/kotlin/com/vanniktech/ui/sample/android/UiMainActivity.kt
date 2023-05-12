@@ -32,7 +32,7 @@ class UiMainActivity : AppCompatActivity() {
     val backgroundColor = theming.colorBackgroundPrimary()
     binding.root.setBackgroundColor(backgroundColor)
 
-    binding.nightMode.setTextColor(theming.colorText())
+    binding.nightMode.setTextColor(theming.colorTextPrimary())
 
     window.themeWindow(
       statusBarColor = backgroundColor,

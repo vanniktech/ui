@@ -40,11 +40,11 @@ data class UiSampleTheming(
   override fun colorOnSecondary() = colorOnSecondary.mapped(isNight)
   override val colorOnSecondary get() = if (colorSecondary.mapped(isNight).shouldUseBlackFont()) ThemingColor.single(Color.BLACK) else ThemingColor.single(Color.WHITE)
 
-  override fun colorText() = colorText.mapped(isNight)
-  override val colorText get() = ThemingColor(light = 0xFF363636.color, dark = Color.WHITE)
+  override fun colorTextPrimary() = colorTextPrimary.mapped(isNight)
+  override val colorTextPrimary get() = ThemingColor(light = 0xFF363636.color, dark = Color.WHITE)
 
   override fun colorTextSecondary() = colorTextSecondary.mapped(isNight)
-  override val colorTextSecondary = colorText.with(alpha = 0.6f)
+  override val colorTextSecondary = colorTextPrimary.with(alpha = 0.6f)
 
   override fun colorError() = colorError.mapped(isNight)
   override val colorError get() = ThemingColor.single(0xFFF44336.color)

@@ -83,7 +83,7 @@ internal class ColorComponentView @JvmOverloads constructor(
     binding.header.text = header
     binding.header.themeTextView(
       color = theming.colorSecondary(),
-      colorText = theming.colorText(),
+      colorText = theming.colorTextPrimary(),
       colorTextSecondary = theming.colorTextSecondary(),
     )
     binding.seekBar.themeSeekBar(Color.WHITE)
@@ -95,7 +95,7 @@ internal class ColorComponentView @JvmOverloads constructor(
 
     binding.editText.themeEditText(
       color = theming.colorSecondary(),
-      colorText = theming.colorText(),
+      colorText = theming.colorTextPrimary(),
       colorTextSecondary = theming.colorTextSecondary(),
     )
 

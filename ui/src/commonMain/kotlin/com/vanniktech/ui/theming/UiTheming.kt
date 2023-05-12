@@ -32,8 +32,8 @@ interface UiTheming {
   fun colorBottomNavigation(): Color
   val colorBottomNavigation: ThemingColor
 
-  fun colorText(): Color
-  val colorText: ThemingColor
+  fun colorTextPrimary(): Color
+  val colorTextPrimary: ThemingColor
 
   fun colorTextSecondary(): Color
   val colorTextSecondary: ThemingColor
