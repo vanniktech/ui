@@ -160,13 +160,13 @@ class ColorPickerView @JvmOverloads constructor(
     }
     binding.hexHeader.themeTextView(
       color = theming.colorSecondary(),
-      colorText = theming.colorText(),
+      colorText = theming.colorTextPrimary(),
       colorTextSecondary = theming.colorTextSecondary(),
     )
     binding.hexEditText.filters = arrayOf(ColorHexInputFilter(supportsAlpha))
     binding.hexEditText.themeEditText(
       color = theming.colorSecondary(),
-      colorText = theming.colorText(),
+      colorText = theming.colorTextPrimary(),
       colorTextSecondary = theming.colorTextSecondary(),
     )
   }

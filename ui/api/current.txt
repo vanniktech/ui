@@ -228,7 +228,7 @@ package com.vanniktech.ui.theming {
     method public int colorRipple();
     method public int colorSecondary();
     method public int colorSuccess();
-    method public int colorText();
+    method public int colorTextPrimary();
     method public int colorTextSecondary();
     method public int colorTopNavigation();
     method public int colorWarning();
@@ -244,7 +244,7 @@ package com.vanniktech.ui.theming {
     method public com.vanniktech.ui.theming.ThemingColor getColorRipple();
     method public com.vanniktech.ui.theming.ThemingColor getColorSecondary();
     method public com.vanniktech.ui.theming.ThemingColor getColorSuccess();
-    method public com.vanniktech.ui.theming.ThemingColor getColorText();
+    method public com.vanniktech.ui.theming.ThemingColor getColorTextPrimary();
     method public com.vanniktech.ui.theming.ThemingColor getColorTextSecondary();
     method public com.vanniktech.ui.theming.ThemingColor getColorTopNavigation();
     method public com.vanniktech.ui.theming.ThemingColor getColorWarning();
@@ -261,7 +261,7 @@ package com.vanniktech.ui.theming {
     property public abstract com.vanniktech.ui.theming.ThemingColor colorRipple;
     property public abstract com.vanniktech.ui.theming.ThemingColor colorSecondary;
     property public abstract com.vanniktech.ui.theming.ThemingColor colorSuccess;
-    property public abstract com.vanniktech.ui.theming.ThemingColor colorText;
+    property public abstract com.vanniktech.ui.theming.ThemingColor colorTextPrimary;
     property public abstract com.vanniktech.ui.theming.ThemingColor colorTextSecondary;
     property public abstract com.vanniktech.ui.theming.ThemingColor colorTopNavigation;
     property public abstract com.vanniktech.ui.theming.ThemingColor colorWarning;
