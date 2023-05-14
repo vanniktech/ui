@@ -1,7 +1,13 @@
 # Change Log
 
-Version 0.8.0 *(In development)*
---------------------------------
+Version 0.8.0 *(2023-05-14)*
+----------------------------
+
+- API: @IgnoredOnParcel common annotation. [\#58](https://github.com/vanniktech/ui/pull/58) ([vanniktech](https://github.com/vanniktech))
+- API: ThemingColor is now Parcelable. [\#52](https://github.com/vanniktech/ui/pull/52) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Remove deprecated methods from previous release. [\#51](https://github.com/vanniktech/ui/pull/51) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Rename colorText to colorTextPrimary. [\#57](https://github.com/vanniktech/ui/pull/57) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Split colorNavigation into colorTopNavigation & colorBottomNavigation. [\#56](https://github.com/vanniktech/ui/pull/56) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.7.0 *(2023-05-01)*
 ----------------------------
