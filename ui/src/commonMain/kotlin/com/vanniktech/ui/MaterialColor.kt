@@ -27,5 +27,4 @@ enum class MaterialColor(
   BROWN(color400 = 0xFF8D6E63.color, color500 = 0xFF795548.color, color800 = 0xFF4E342E.color, colorToolbar = 0xFF4B2C20.color),
   GRAY(color400 = 0xFFBDBDBD.color, color500 = 0xFF9E9E9E.color, color800 = 0xFF424242.color, colorToolbar = 0xFF707070.color),
   BLUE_GRAY(color400 = 0xFF78909C.color, color500 = 0xFF607D8B.color, color800 = 0xFF37474F.color, colorToolbar = 0xFF34515E.color),
-  ;
 }
