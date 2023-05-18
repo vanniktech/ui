@@ -21,7 +21,7 @@ fun Paint.setColor(color: Color) {
   this.color = color.argb
 }
 
-fun ColorDrawable(color: Color) = ColorDrawable(color.argb)
+fun ColorDrawable(color: Color): ColorDrawable = ColorDrawable(color.argb)
 
 fun Color.colorStateList() = ColorStateList.valueOf(argb)
 
