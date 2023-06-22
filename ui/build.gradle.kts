@@ -77,6 +77,14 @@ kotlin {
       }
     }
 
+    val androidInstrumentedTest by getting {
+      dependencies {
+        implementation(libs.androidx.test.junit)
+        implementation(libs.androidx.test.rules)
+        implementation(libs.androidx.test.runner)
+      }
+    }
+
     val jvmMain by getting {
       dependencies {
       }
@@ -126,6 +134,7 @@ android {
 
   defaultConfig {
     minSdk = libs.versions.minSdk.get().toInt()
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
   buildFeatures {
