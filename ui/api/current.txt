@@ -152,6 +152,20 @@ package com.vanniktech.ui {
   public final class CommonParcelableAndroidApiKt {
   }
 
+  public final class DurationParceler implements kotlinx.parcelize.Parceler<kotlin.time.Duration> {
+    method public kotlin.time.Duration? create(android.os.Parcel parcel);
+    method public void write(kotlin.time.Duration?, android.os.Parcel parcel, int flags);
+    field public static final com.vanniktech.ui.DurationParceler INSTANCE;
+  }
+
+  public final class DurationParceler implements com.vanniktech.ui.Parceler<kotlin.time.Duration> {
+    field public static final com.vanniktech.ui.DurationParceler INSTANCE;
+  }
+
+  public final class DurationParceler implements com.vanniktech.ui.Parceler<kotlin.time.Duration> {
+    field public static final com.vanniktech.ui.DurationParceler INSTANCE;
+  }
+
   public final class InternalKt {
   }
 
@@ -191,6 +205,12 @@ package com.vanniktech.ui {
   }
 
   public interface Parcelable {
+  }
+
+  public interface Parceler<T> {
+  }
+
+  public interface Parceler<T> {
   }
 
 }
