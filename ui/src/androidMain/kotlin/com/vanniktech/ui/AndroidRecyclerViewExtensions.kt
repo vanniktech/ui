@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView.SmoothScroller
 import com.google.android.flexbox.FlexboxLayoutManager
 
 fun RecyclerView.scrollToTop() = smoothScrollTo(0)
-fun RecyclerView.scrollToBottom() = smoothScrollTo(itemCount() - 1)
+fun RecyclerView.scrollToBottom() = smoothScrollTo(maxOf(0, itemCount() - 1))
 
 private fun RecyclerView.firstVisibleItemPosition() = when (val layoutManager = layoutManager) {
   is LinearLayoutManager -> layoutManager.findFirstVisibleItemPosition()
