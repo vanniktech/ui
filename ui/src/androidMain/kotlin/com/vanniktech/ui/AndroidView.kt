@@ -101,7 +101,7 @@ fun TabLayout.themeTabLayout(
   colorOnToolbarSecondary: Color,
   colorRipple: Color,
 ) {
-  ViewCompat.setBackgroundTintList(this, colorToolbar.colorStateList())
+  setBackgroundColor(colorToolbar)
   setSelectedTabIndicatorColor(colorOnToolbar.argb)
   tabIconTint = colorToolbar.colorStateList()
   tabTextColors = colorStateList(
