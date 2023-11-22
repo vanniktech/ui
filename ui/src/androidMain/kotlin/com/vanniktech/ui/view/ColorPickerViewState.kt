@@ -9,4 +9,5 @@ import com.vanniktech.ui.Parcelize
   val superSavedState: Parcelable?,
   val color: Color,
   val supportsAlpha: Boolean,
-) : View.BaseSavedState(superSavedState), Parcelable
+) : View.BaseSavedState(superSavedState),
+  Parcelable
