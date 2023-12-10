@@ -30,15 +30,16 @@ fun View.animateToVisible(
   animate()
     .setDuration(duration)
     .alpha(1.0f)
-    .setListener(object : AnimatorListenerAdapter() {
-      override fun onAnimationStart(animation: Animator) {
-        visibility = VISIBLE
-      }
+    .setListener(
+      object : AnimatorListenerAdapter() {
+        override fun onAnimationStart(animation: Animator) {
+          visibility = VISIBLE
+        }
 
-      override fun onAnimationEnd(animation: Animator) {
-        onEnd?.invoke()
-      }
-    },
+        override fun onAnimationEnd(animation: Animator) {
+          onEnd?.invoke()
+        }
+      },
     )
 }
 
@@ -57,12 +58,13 @@ fun View.animateToGone(
   animate()
     .setDuration(duration)
     .alpha(0.0f)
-    .setListener(object : AnimatorListenerAdapter() {
-      override fun onAnimationEnd(animation: Animator) {
-        visibility = GONE
-        onEnd?.invoke()
-      }
-    },
+    .setListener(
+      object : AnimatorListenerAdapter() {
+        override fun onAnimationEnd(animation: Animator) {
+          visibility = GONE
+          onEnd?.invoke()
+        }
+      },
     )
 }
 
@@ -143,17 +145,18 @@ inline fun ViewGroup.animate(body: () -> Unit, crossinline onEndListener: () -> 
 
   TransitionManager.beginDelayedTransition(
     this,
-    AutoTransition().addListener(object : TransitionListener {
-      override fun onTransitionEnd(transition: Transition) = onEndListener.invoke()
+    AutoTransition().addListener(
+      object : TransitionListener {
+        override fun onTransitionEnd(transition: Transition) = onEndListener.invoke()
 
-      override fun onTransitionResume(transition: Transition) = Unit
+        override fun onTransitionResume(transition: Transition) = Unit
 
-      override fun onTransitionPause(transition: Transition) = Unit
+        override fun onTransitionPause(transition: Transition) = Unit
 
-      override fun onTransitionCancel(transition: Transition) = Unit
+        override fun onTransitionCancel(transition: Transition) = Unit
 
-      override fun onTransitionStart(transition: Transition) = Unit
-    },
+        override fun onTransitionStart(transition: Transition) = Unit
+      },
     ),
   )
 
