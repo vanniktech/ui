@@ -1,3 +1,5 @@
+@file:Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
+
 package com.vanniktech.ui
 
 import android.os.Parcel
@@ -12,11 +14,9 @@ actual typealias TypeParceler<T, P> = TypeParceler<T, P>
 actual typealias Parceler<T> = Parceler<T>
 
 actual object DurationParceler : Parceler<Duration?> {
-  override fun create(parcel: Parcel): Duration? {
-    return when (parcel.readInt() == 1) {
-      true -> parcel.readString()?.let(Duration::parseIsoStringOrNull)
-      else -> null
-    }
+  override fun create(parcel: Parcel): Duration? = when (parcel.readInt() == 1) {
+    true -> parcel.readString()?.let(Duration::parseIsoStringOrNull)
+    else -> null
   }
 
   override fun Duration?.write(parcel: Parcel, flags: Int) {

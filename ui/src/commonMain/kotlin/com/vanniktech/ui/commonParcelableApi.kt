@@ -1,3 +1,5 @@
+@file:Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
+
 package com.vanniktech.ui
 
 import kotlin.time.Duration
@@ -14,14 +16,14 @@ expect annotation class Parcelize()
 @OptionalExpectation
 @Target(AnnotationTarget.PROPERTY)
 @Retention(AnnotationRetention.SOURCE)
-expect annotation class IgnoredOnParcel()
+expect annotation class IgnoredOnParcel
 
 @OptIn(ExperimentalMultiplatform::class)
 @OptionalExpectation
 @Retention(AnnotationRetention.SOURCE)
 @Repeatable
 @Target(AnnotationTarget.CLASS, AnnotationTarget.PROPERTY)
-expect annotation class TypeParceler<T, P : Parceler<in T>>()
+expect annotation class TypeParceler<T, P : Parceler<in T>>
 
 expect interface Parceler<T>
 

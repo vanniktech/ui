@@ -114,8 +114,8 @@ package com.vanniktech.ui {
   @kotlin.jvm.JvmInline @kotlinx.parcelize.Parcelize @kotlinx.serialization.Serializable(with=ColorSerializer::class) public final value class Color implements com.vanniktech.ui.Parcelable {
     ctor public Color(int argb);
     method public int brighten(float factor);
-    method public int copy(optional int alpha, optional int red, optional int green, optional int blue);
     method public int copy(optional float alpha, optional float red, optional float green, optional float blue);
+    method public int copy(optional int alpha, optional int red, optional int green, optional int blue);
     method public int getArgb();
     method public String htmlRgbaString();
     method public boolean shouldUseBlackFont();
@@ -149,9 +149,6 @@ package com.vanniktech.ui {
     field public static final com.vanniktech.ui.ColorSerializer INSTANCE;
   }
 
-  public final class CommonParcelableAndroidApiKt {
-  }
-
   public final class DurationParceler implements kotlinx.parcelize.Parceler<kotlin.time.Duration> {
     method public kotlin.time.Duration? create(android.os.Parcel parcel);
     method public void write(kotlin.time.Duration?, android.os.Parcel parcel, int flags);
@@ -166,15 +163,12 @@ package com.vanniktech.ui {
     field public static final com.vanniktech.ui.DurationParceler INSTANCE;
   }
 
-  public final class InternalKt {
-  }
-
   public enum MaterialColor {
     method public final int getColor400();
     method public final int getColor500();
     method public final int getColor800();
     method public final int getColorToolbar();
-    method public static com.vanniktech.ui.MaterialColor valueOf(String name) throws java.lang.IllegalArgumentException;
+    method public static com.vanniktech.ui.MaterialColor valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
     method public static com.vanniktech.ui.MaterialColor[] values();
     property public final int color400;
     property public final int color500;
@@ -317,7 +311,7 @@ package com.vanniktech.ui.theming.night {
 
   public enum NightModeBehavior {
     method public final int getValue();
-    method public static com.vanniktech.ui.theming.night.NightModeBehavior valueOf(String name) throws java.lang.IllegalArgumentException;
+    method public static com.vanniktech.ui.theming.night.NightModeBehavior valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
     method public static com.vanniktech.ui.theming.night.NightModeBehavior[] values();
     property public final int value;
     enum_constant public static final com.vanniktech.ui.theming.night.NightModeBehavior FOLLOW_SYSTEM;
@@ -347,9 +341,6 @@ package com.vanniktech.ui.theming.night {
 }
 
 package com.vanniktech.ui.view {
-
-  public final class ColorHexInputFilterKt {
-  }
 
   public sealed interface ColorPickerStrings {
   }
@@ -395,8 +386,8 @@ package com.vanniktech.ui.view {
   }
 
   public final class ColorPickerView extends android.widget.LinearLayout {
-    ctor public ColorPickerView(android.content.Context context, optional android.util.AttributeSet? attrs);
     ctor public ColorPickerView(android.content.Context context);
+    ctor public ColorPickerView(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public int color();
     method public void onRestoreInstanceState(com.vanniktech.ui.Parcelable? state);
     method protected com.vanniktech.ui.Parcelable onSaveInstanceState();
