@@ -41,16 +41,17 @@ fun RecyclerView.smoothScrollTo(position: Int, scrollDuration: Int = 300, onTarg
 }
 
 /** This is useful when a [RecyclerView] with the same scrolling direction is inside another [RecyclerView]. */
-fun RecyclerView.allowNestedVerticalScrolling() = addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
-  override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
-    when (e.action) {
-      MotionEvent.ACTION_MOVE -> rv.parent.requestDisallowInterceptTouchEvent(true)
+fun RecyclerView.allowNestedVerticalScrolling() = addOnItemTouchListener(
+  object : RecyclerView.OnItemTouchListener {
+    override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+      when (e.action) {
+        MotionEvent.ACTION_MOVE -> rv.parent.requestDisallowInterceptTouchEvent(true)
+      }
+      return false
     }
-    return false
-  }
 
-  override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) = Unit
+    override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) = Unit
 
-  override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) = Unit
-},
+    override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) = Unit
+  },
 )
