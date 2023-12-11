@@ -1,7 +1,14 @@
 # Change Log
 
-Version 0.9.0 *(In development)*
---------------------------------
+Version 0.9.0 *(2023-12-11)*
+----------------------------
+
+- API: Kotlin Multiplatform ArgbEvaluator implementation. [\#64](https://github.com/vanniktech/ui/pull/64) ([vanniktech](https://github.com/vanniktech))
+- API: Provide DurationParceler & TypeParceler annotation. [\#74](https://github.com/vanniktech/ui/pull/74) ([vanniktech](https://github.com/vanniktech))
+- Behavior change: TabLayout.themeTabLayout sets background color now instead of background tint list. [\#91](https://github.com/vanniktech/ui/pull/91) ([vanniktech](https://github.com/vanniktech))
+- Fix RecyclerView.scrollToBottom in case RecyclerView contains no items. [\#83](https://github.com/vanniktech/ui/pull/83) ([vanniktech](https://github.com/vanniktech))
+- Technical: Configure Lint regarding new dependency versions. [\#97](https://github.com/vanniktech/ui/pull/97) ([vanniktech](https://github.com/vanniktech))
+- Technical: Kotlin 1.9.21 & Target Android 34. [\#102](https://github.com/vanniktech/ui/pull/102) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.8.0 *(2023-05-14)*
 ----------------------------
