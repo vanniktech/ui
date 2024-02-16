@@ -92,12 +92,12 @@ package com.vanniktech.ui {
     method public static void themeRecyclerView(androidx.recyclerview.widget.RecyclerView, int color);
     method public static void themeSeekBar(android.widget.SeekBar, int color);
     method public static void themeSwipeRefreshLayout(androidx.swiperefreshlayout.widget.SwipeRefreshLayout, int color, int backgroundColor);
-    method public static void themeTabLayout(com.google.android.material.tabs.TabLayout, int colorToolbar, int colorOnToolbar, int colorOnToolbarSecondary, int colorRipple);
+    method public static void themeTabLayout(com.google.android.material.tabs.TabLayout, int colorToolbar, int colorOnToolbarPrimary, int colorOnToolbarSecondary, int colorRipple);
     method public static void themeTextButton(com.google.android.material.button.MaterialButton, int color, int colorDisabled, int colorRipple);
     method public static void themeTextInputLayout(com.google.android.material.textfield.TextInputLayout, int colorText, int colorError, int colorBoxPrimary, int colorBoxSecondary);
     method public static void themeTextView(android.widget.TextView, int color, int colorText, int colorTextSecondary);
     method public static void themeToggleButton(com.google.android.material.button.MaterialButton, int color, int colorUnchecked, int colorRipple);
-    method public static void themeToolbar(com.google.android.material.appbar.MaterialToolbar, int colorToolbar, int colorOnToolbar, int colorOnToolbarSecondary, int colorNavigationIcon);
+    method public static void themeToolbar(com.google.android.material.appbar.MaterialToolbar, int colorToolbar, int colorOnToolbarPrimary, int colorOnToolbarSecondary, int colorNavigationIcon);
     method public static void themeViewPager(androidx.viewpager.widget.ViewPager, int color);
     method public static void themeWebView(android.webkit.WebView, int backgroundColor, boolean isNight);
   }

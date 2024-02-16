@@ -85,28 +85,28 @@ fun MaterialAutoCompleteTextView.themeMaterialAutoCompleteTextView(
 
 fun MaterialToolbar.themeToolbar(
   colorToolbar: Color,
-  colorOnToolbar: Color,
+  colorOnToolbarPrimary: Color,
   colorOnToolbarSecondary: Color,
   colorNavigationIcon: Color,
 ) {
   setBackgroundColor(colorToolbar)
-  setTitleTextColor(colorOnToolbar.argb)
+  setTitleTextColor(colorOnToolbarPrimary.argb)
   setSubtitleTextColor(colorOnToolbarSecondary.argb)
   setNavigationIconTint(colorNavigationIcon.argb)
 }
 
 fun TabLayout.themeTabLayout(
   colorToolbar: Color,
-  colorOnToolbar: Color,
+  colorOnToolbarPrimary: Color,
   colorOnToolbarSecondary: Color,
   colorRipple: Color,
 ) {
   setBackgroundColor(colorToolbar)
-  setSelectedTabIndicatorColor(colorOnToolbar.argb)
+  setSelectedTabIndicatorColor(colorOnToolbarPrimary.argb)
   tabIconTint = colorToolbar.colorStateList()
   tabTextColors = colorStateList(
     state = android.R.attr.state_selected,
-    on = colorOnToolbar,
+    on = colorOnToolbarPrimary,
     off = colorOnToolbarSecondary,
   )
   tabRippleColor = colorRipple.colorStateList()
