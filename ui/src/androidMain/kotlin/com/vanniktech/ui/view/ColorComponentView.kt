@@ -48,7 +48,7 @@ internal class ColorComponentView @JvmOverloads constructor(
     override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
     override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) = Unit
     override fun afterTextChanged(s: Editable?) {
-      val value = s?.toString()?.toIntOrNull() ?: 0
+      val value = s?.toString()?.toIntOrNull()?.coerceIn(COLOR_COMPONENT_RANGE) ?: 0
       binding.seekBar.progress = value
       delegate.onComponentChanged(ColorComponentChange(origin = this@ColorComponentView, value = value))
     }
