@@ -32,9 +32,7 @@ fun RecyclerView.smoothScrollTo(position: Int, scrollDuration: Int = 300, onTarg
       onTargetFound(targetView)
     }
 
-    override fun calculateSpeedPerPixel(displayMetrics: DisplayMetrics?): Float {
-      return scrollDuration.toFloat() / computeVerticalScrollRange()
-    }
+    override fun calculateSpeedPerPixel(displayMetrics: DisplayMetrics?): Float = scrollDuration.toFloat() / computeVerticalScrollRange()
   }
   smoothScroller.targetPosition = position
   layoutManager?.startSmoothScroll(smoothScroller)
