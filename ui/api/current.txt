@@ -111,7 +111,7 @@ package com.vanniktech.ui {
     field public static final com.vanniktech.ui.ArgbEvaluator INSTANCE;
   }
 
-  @kotlin.jvm.JvmInline @kotlinx.parcelize.Parcelize @kotlinx.serialization.Serializable(with=ColorSerializer::class) public final value class Color implements com.vanniktech.ui.Parcelable {
+  @kotlin.jvm.JvmInline @kotlinx.serialization.Serializable(with=ColorSerializer::class) public final value class Color implements com.vanniktech.ui.UiParcelable {
     ctor public Color(int argb);
     method public int brighten(float factor);
     method public int copy(optional float alpha, optional float red, optional float green, optional float blue);
@@ -181,17 +181,17 @@ package com.vanniktech.ui {
     enum_constant public static final com.vanniktech.ui.MaterialColor YELLOW;
   }
 
-  public interface Parcelable {
+  public interface UiParcelable {
   }
 
-  public interface Parcelable {
+  public interface UiParcelable {
   }
 
 }
 
 package com.vanniktech.ui.theming {
 
-  @kotlinx.parcelize.Parcelize @kotlinx.serialization.Serializable(with=ThemingColorSerializer::class) public final class ThemingColor implements com.vanniktech.ui.Parcelable {
+  @kotlinx.serialization.Serializable(with=ThemingColorSerializer::class) public final class ThemingColor implements com.vanniktech.ui.UiParcelable {
     ctor public ThemingColor(int light, int dark);
     method public int component1-oEAH0UE();
     method public int component2-oEAH0UE();
@@ -369,8 +369,8 @@ package com.vanniktech.ui.view {
     ctor public ColorPickerView(android.content.Context context);
     ctor public ColorPickerView(android.content.Context context, optional android.util.AttributeSet? attrs);
     method public int color();
-    method public void onRestoreInstanceState(com.vanniktech.ui.Parcelable? state);
-    method protected com.vanniktech.ui.Parcelable onSaveInstanceState();
+    method public void onRestoreInstanceState(com.vanniktech.ui.UiParcelable? state);
+    method protected com.vanniktech.ui.UiParcelable onSaveInstanceState();
     method public void setUp(com.vanniktech.ui.theming.UiTheming theming, com.vanniktech.ui.view.ColorPickerStrings strings, int selectedColor);
   }
 

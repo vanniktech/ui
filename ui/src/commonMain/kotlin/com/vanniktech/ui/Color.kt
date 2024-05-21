@@ -32,7 +32,7 @@ internal val FLOAT_VALUE = COLOR_COMPONENT_RANGE.last.toFloat()
 internal const val HEX_PREFIX = "#"
 
 @Serializable(ColorSerializer::class)
-@Parcelize @JvmInline value class Color(val argb: Int) : Parcelable {
+@UiParcelize @JvmInline value class Color(val argb: Int) : UiParcelable {
   override fun toString(): String {
     var number = argb
     var buffer = ""

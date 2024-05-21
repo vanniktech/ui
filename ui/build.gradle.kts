@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
 import org.jetbrains.kotlin.gradle.plugin.mpp.BitcodeEmbeddingMode
 
 plugins {
@@ -22,6 +23,14 @@ metalava {
 }
 
 kotlin {
+  @OptIn(ExperimentalKotlinGradlePluginApi::class)
+  compilerOptions {
+    freeCompilerArgs.addAll(
+      "-P",
+      "plugin:org.jetbrains.kotlin.parcelize:additionalAnnotation=com.vanniktech.ui.UiParcelize",
+    )
+  }
+
   applyDefaultHierarchyTemplate()
 
   androidTarget {

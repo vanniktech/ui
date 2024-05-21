@@ -2,10 +2,8 @@
 
 package com.vanniktech.ui
 
-expect interface Parcelable
+expect interface UiParcelable
 
-@OptIn(ExperimentalMultiplatform::class)
-@OptionalExpectation
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.BINARY)
-expect annotation class Parcelize()
+internal annotation class UiParcelize
