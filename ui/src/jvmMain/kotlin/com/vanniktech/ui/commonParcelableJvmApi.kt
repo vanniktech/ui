@@ -2,4 +2,4 @@
 
 package com.vanniktech.ui
 
-actual interface Parcelable
+actual interface UiParcelable

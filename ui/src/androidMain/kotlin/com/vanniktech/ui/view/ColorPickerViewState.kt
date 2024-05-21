@@ -2,12 +2,12 @@ package com.vanniktech.ui.view
 
 import android.view.View
 import com.vanniktech.ui.Color
-import com.vanniktech.ui.Parcelable
-import com.vanniktech.ui.Parcelize
+import com.vanniktech.ui.UiParcelable
+import com.vanniktech.ui.UiParcelize
 
-@Parcelize internal class ColorPickerViewState(
-  val superSavedState: Parcelable?,
+@UiParcelize internal class ColorPickerViewState(
+  val superSavedState: UiParcelable?,
   val color: Color,
   val supportsAlpha: Boolean,
 ) : View.BaseSavedState(superSavedState),
-  Parcelable
+  UiParcelable

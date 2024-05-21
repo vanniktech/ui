@@ -12,8 +12,8 @@ import com.vanniktech.ui.COLOR_COMPONENT_RANGE
 import com.vanniktech.ui.Color
 import com.vanniktech.ui.FLOAT_VALUE
 import com.vanniktech.ui.HEX_PREFIX
-import com.vanniktech.ui.Parcelable
 import com.vanniktech.ui.R
+import com.vanniktech.ui.UiParcelable
 import com.vanniktech.ui.colorStateList
 import com.vanniktech.ui.cursorAtEndWithText
 import com.vanniktech.ui.databinding.UiViewColorPickerBinding
@@ -81,12 +81,12 @@ class ColorPickerView @JvmOverloads constructor(
 
   fun color() = color
 
-  override fun onSaveInstanceState(): Parcelable {
+  override fun onSaveInstanceState(): UiParcelable {
     val superState = super.onSaveInstanceState()
     return ColorPickerViewState(superState, color, supportsAlpha)
   }
 
-  override fun onRestoreInstanceState(state: Parcelable?) {
+  override fun onRestoreInstanceState(state: UiParcelable?) {
     val myState = state as? ColorPickerViewState
     super.onRestoreInstanceState(myState?.superSavedState ?: state)
 
