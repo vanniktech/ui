@@ -12,7 +12,7 @@ kotlin {
   sourceSets {
     val commonMain by getting {
       dependencies {
-        implementation("com.vanniktech:ui:0.9.0")
+        implementation("com.vanniktech:ui:0.10.0")
       }
     }
   }
@@ -23,14 +23,14 @@ From Android / JVM Multiplatform:
 
 ```groovy
 dependencies {
-  implementation("com.vanniktech:ui:0.9.0")
+  implementation("com.vanniktech:ui:0.10.0")
 }
 ```
 
 From iOS:
 
 ```ruby
-pod 'ui', :git => 'https://github.com/vanniktech/ui', :tag => "0.9.0"
+pod 'ui', :git => 'https://github.com/vanniktech/ui', :tag => "0.10.0"
 ```
 
 # API

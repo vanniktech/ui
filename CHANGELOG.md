@@ -1,7 +1,11 @@
 # Change Log
 
-Version 0.10.0 *(In development)*
----------------------------------
+Version 0.10.0 *(2024-05-23)*
+-----------------------------
+
+- Technical: Update Kotlin to 2.0.0 [\#140](https://github.com/vanniktech/ui/pull/140) ([vanniktech](https://github.com/vanniktech))
+- Breaking: Hide Parcelable types, no longer works with K2. [\#139](https://github.com/vanniktech/ui/pull/139) ([vanniktech](https://github.com/vanniktech))
+- Bug fix: Don't crash when a value outside the range of a color component is pasted into an Edittext. [\#128](https://github.com/vanniktech/ui/pull/128) ([vanniktech](https://github.com/vanniktech))
 
 Version 0.9.0 *(2023-12-11)*
 ----------------------------
