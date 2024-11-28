@@ -23,32 +23,31 @@ object ThemingColorSerializer : KSerializer<ThemingColor> {
     }
 
   @OptIn(ExperimentalSerializationApi::class)
-  override fun deserialize(decoder: Decoder) =
-    decoder.decodeStructure(descriptor) {
-      if (decodeSequentially()) {
-        ThemingColor(
-          light = decodeSerializableElement(descriptor, 0, Color.serializer()),
-          dark = decodeSerializableElement(descriptor, 1, Color.serializer()),
-        )
-      } else {
-        var light: Color? = null
-        var dark: Color? = null
+  override fun deserialize(decoder: Decoder) = decoder.decodeStructure(descriptor) {
+    if (decodeSequentially()) {
+      ThemingColor(
+        light = decodeSerializableElement(descriptor, 0, Color.serializer()),
+        dark = decodeSerializableElement(descriptor, 1, Color.serializer()),
+      )
+    } else {
+      var light: Color? = null
+      var dark: Color? = null
 
-        while (true) {
-          when (val index = decodeElementIndex(descriptor)) {
-            0 -> light = decodeSerializableElement(descriptor, index, Color.serializer())
-            1 -> dark = decodeSerializableElement(descriptor, index, Color.serializer())
-            CompositeDecoder.DECODE_DONE -> break
-            else -> error("Unexpected index: $index")
-          }
+      while (true) {
+        when (val index = decodeElementIndex(descriptor)) {
+          0 -> light = decodeSerializableElement(descriptor, index, Color.serializer())
+          1 -> dark = decodeSerializableElement(descriptor, index, Color.serializer())
+          CompositeDecoder.DECODE_DONE -> break
+          else -> error("Unexpected index: $index")
         }
-
-        ThemingColor(
-          light = requireNotNull(light),
-          dark = requireNotNull(dark),
-        )
       }
+
+      ThemingColor(
+        light = requireNotNull(light),
+        dark = requireNotNull(dark),
+      )
     }
+  }
 
   override fun serialize(encoder: Encoder, value: ThemingColor) {
     encoder.encodeStructure(descriptor) {

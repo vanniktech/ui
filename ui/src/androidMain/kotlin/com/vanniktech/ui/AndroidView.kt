@@ -161,10 +161,9 @@ fun WebView.themeWebView(
 
 fun RecyclerView.themeRecyclerView(color: Color) {
   edgeEffectFactory = object : RecyclerView.EdgeEffectFactory() {
-    override fun createEdgeEffect(view: RecyclerView, direction: Int) =
-      EdgeEffect(view.context).apply {
-        this.color = color.argb
-      }
+    override fun createEdgeEffect(view: RecyclerView, direction: Int) = EdgeEffect(view.context).apply {
+      this.color = color.argb
+    }
   }
 }
 
