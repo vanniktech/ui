@@ -19,8 +19,7 @@ object ColorSerializer : KSerializer<Color> {
   override val descriptor: SerialDescriptor
     get() = PrimitiveSerialDescriptor("Color", STRING)
 
-  override fun deserialize(decoder: Decoder) =
-    decoder.decodeInt().color
+  override fun deserialize(decoder: Decoder) = decoder.decodeInt().color
 
   override fun serialize(encoder: Encoder, value: Color) {
     encoder.encodeInt(value.argb)

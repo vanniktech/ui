@@ -43,5 +43,4 @@ fun TextView.setTextSizeSp(sp: Float) {
   setTextSize(TypedValue.COMPLEX_UNIT_SP, sp)
 }
 
-fun ImageView.tintIcon(color: Color, mode: PorterDuff.Mode = PorterDuff.Mode.SRC_IN) =
-  setColorFilter(color.argb, mode)
+fun ImageView.tintIcon(color: Color, mode: PorterDuff.Mode = PorterDuff.Mode.SRC_IN) = setColorFilter(color.argb, mode)
