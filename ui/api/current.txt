@@ -150,12 +150,10 @@ package com.vanniktech.ui {
   }
 
   public enum MaterialColor {
-    method public final int getColor400();
-    method public final int getColor500();
-    method public final int getColor800();
-    method public final int getColorToolbar();
-    method public static com.vanniktech.ui.MaterialColor valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.vanniktech.ui.MaterialColor[] values();
+    method public int getColor400();
+    method public int getColor500();
+    method public int getColor800();
+    method public int getColorToolbar();
     property public final int color400;
     property public final int color500;
     property public final int color800;
@@ -290,9 +288,7 @@ package com.vanniktech.ui.theming.night {
   }
 
   public enum NightModeBehavior {
-    method public final int getValue();
-    method public static com.vanniktech.ui.theming.night.NightModeBehavior valueOf(String value) throws java.lang.IllegalArgumentException, java.lang.NullPointerException;
-    method public static com.vanniktech.ui.theming.night.NightModeBehavior[] values();
+    method public int getValue();
     property public final int value;
     enum_constant public static final com.vanniktech.ui.theming.night.NightModeBehavior FOLLOW_SYSTEM;
     enum_constant public static final com.vanniktech.ui.theming.night.NightModeBehavior NO;
