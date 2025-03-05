@@ -13,6 +13,8 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.transition.AutoTransition
 import androidx.transition.Transition
 import androidx.transition.Transition.TransitionListener
@@ -23,7 +25,7 @@ fun View.animateToVisible(
   duration: Long = DEFAULT_ANIMATION_DURATION,
   onEnd: (() -> Unit)? = null,
 ) {
-  if (visibility == VISIBLE) return
+  if (isVisible) return
 
   alpha = 0.0f
 
@@ -48,7 +50,7 @@ fun View.animateToGone(
   duration: Long = DEFAULT_ANIMATION_DURATION,
   onEnd: (() -> Unit)? = null,
 ) {
-  if (visibility == GONE) {
+  if (isGone) {
     onEnd?.invoke()
     return
   }
