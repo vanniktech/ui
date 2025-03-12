@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.app.NotificationCompat
+import androidx.core.graphics.drawable.toDrawable
 
 fun View.setBackgroundColor(color: Color) = setBackgroundColor(color.argb)
 fun TextView.setTextColor(color: Color) = setTextColor(color.argb)
@@ -21,7 +22,7 @@ fun Paint.setColor(color: Color) {
   this.color = color.argb
 }
 
-fun ColorDrawable(color: Color): ColorDrawable = ColorDrawable(color.argb)
+fun ColorDrawable(color: Color): ColorDrawable = color.argb.toDrawable()
 
 fun Color.colorStateList() = ColorStateList.valueOf(argb)
 
