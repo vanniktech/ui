@@ -8,7 +8,7 @@ kotlin = "2.1.21"
 ktlint = "1.4.1"
 
 [libraries]
-androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.0" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.1" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version = "1.1.0" }
 androidx-test-junit = { module = "androidx.test.ext:junit", version = "1.2.1" }
 androidx-test-rules = { module = "androidx.test:rules", version = "1.6.1" }
