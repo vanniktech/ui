@@ -5,7 +5,7 @@ targetSdk = "34"
 
 androidgradleplugin = "8.9.2"
 kotlin = "2.1.21"
-ktlint = "1.4.1"
+ktlint = "1.8.0"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.1" }
@@ -32,5 +32,5 @@ plugin-publish = { module = "com.vanniktech:gradle-maven-publish-plugin", versio
 timber = { module = "com.jakewharton.timber:timber", version = "5.0.1" }
 
 [plugins]
-codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.24.0" }
+codequalitytools = { id = "com.vanniktech.code.quality.tools", version = "0.25.0" }
 dependencygraphgenerator = { id = "com.vanniktech.dependency.graph.generator", version = "0.8.0" }
