@@ -8,32 +8,33 @@ package com.vanniktech.ui {
   public final class AndroidAnimationKt {
     method public static inline void animate(android.view.ViewGroup, kotlin.jvm.functions.Function0<kotlin.Unit> body);
     method public static inline void animate(android.view.ViewGroup, kotlin.jvm.functions.Function0<kotlin.Unit> body, kotlin.jvm.functions.Function0<kotlin.Unit> onEndListener);
-    method public static void animateBackgroundColor(android.view.View, int color, optional long speed);
+    method @KotlinOnly public static void animateBackgroundColor(android.view.View, com.vanniktech.ui.Color color, optional long speed);
     method public static void animateText(android.widget.TextView, String? text);
-    method public static void animateTextColor(android.widget.TextView, int color, optional long speed);
-    method public static void animateTint(android.widget.ImageView, int to, optional android.graphics.PorterDuff.Mode mode, optional long speed);
+    method @KotlinOnly public static void animateTextColor(android.widget.TextView, com.vanniktech.ui.Color color, optional long speed);
+    method @KotlinOnly public static void animateTint(android.widget.ImageView, com.vanniktech.ui.Color to, optional android.graphics.PorterDuff.Mode mode, optional long speed);
     method public static void animateToGone(android.view.View, optional long duration, optional kotlin.jvm.functions.Function0<kotlin.Unit>? onEnd);
     method public static void animateToVisible(android.view.View, optional long duration, optional kotlin.jvm.functions.Function0<kotlin.Unit>? onEnd);
-    method public static void flash(android.view.View, int from, int to);
+    method @KotlinOnly public static void flash(android.view.View, com.vanniktech.ui.Color from, com.vanniktech.ui.Color to);
+    property public static long DEFAULT_ANIMATION_DURATION;
     field public static final long DEFAULT_ANIMATION_DURATION = 300L; // 0x12cL
   }
 
   public final class AndroidColorKt {
-    method public static android.graphics.drawable.ColorDrawable ColorDrawable(int color);
-    method public static android.content.res.ColorStateList colorStateList(int);
-    method public static android.content.res.ColorStateList colorStateList(int state, int on, int off);
-    method public static android.text.SpannableString? coloredText(int, CharSequence? text);
-    method public static void setBackgroundColor(android.view.View, int color);
-    method public static void setCardBackgroundColor(androidx.cardview.widget.CardView, int color);
-    method public static void setColor(android.graphics.Paint, int color);
-    method public static androidx.core.app.NotificationCompat.Builder setColor(androidx.core.app.NotificationCompat.Builder, int color);
-    method public static void setTextColor(android.widget.TextView, int color);
+    method @KotlinOnly public static android.graphics.drawable.ColorDrawable ColorDrawable(com.vanniktech.ui.Color color);
+    method @KotlinOnly public static android.content.res.ColorStateList colorStateList(com.vanniktech.ui.Color);
+    method @KotlinOnly public static android.content.res.ColorStateList colorStateList(int state, com.vanniktech.ui.Color on, com.vanniktech.ui.Color off);
+    method @KotlinOnly public static android.text.SpannableString? coloredText(com.vanniktech.ui.Color, CharSequence? text);
+    method @KotlinOnly public static void setBackgroundColor(android.view.View, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static void setCardBackgroundColor(androidx.cardview.widget.CardView, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static void setColor(android.graphics.Paint, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static androidx.core.app.NotificationCompat.Builder setColor(androidx.core.app.NotificationCompat.Builder, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static void setTextColor(android.widget.TextView, com.vanniktech.ui.Color color);
     method public static void setTextSizeSp(android.widget.TextView, float sp);
-    method public static void tintIcon(android.widget.ImageView, int color, optional android.graphics.PorterDuff.Mode mode);
+    method @KotlinOnly public static void tintIcon(android.widget.ImageView, com.vanniktech.ui.Color color, optional android.graphics.PorterDuff.Mode mode);
   }
 
   public final class AndroidDialogKt {
-    method public static androidx.appcompat.app.AlertDialog show(com.google.android.material.dialog.MaterialAlertDialogBuilder, int background, int colorRipple, int colorButton);
+    method @KotlinOnly public static androidx.appcompat.app.AlertDialog show(com.google.android.material.dialog.MaterialAlertDialogBuilder, com.vanniktech.ui.Color background, com.vanniktech.ui.Color colorRipple, com.vanniktech.ui.Color colorButton);
   }
 
   public final class AndroidEditTextExtensionsKt {
@@ -46,7 +47,7 @@ package com.vanniktech.ui {
   }
 
   public final class AndroidGoodiesKt {
-    method public static com.vanniktech.ui.Color? backgroundColor(android.view.View);
+    method @KotlinOnly public static com.vanniktech.ui.Color? backgroundColor(android.view.View);
     method public static java.util.List<android.view.View> children(android.view.ViewGroup);
     method public static void click(android.view.View);
     method public static android.view.ViewGroup parentViewGroup(android.view.View);
@@ -60,7 +61,7 @@ package com.vanniktech.ui {
   }
 
   public final class AndroidMenuKt {
-    method public static void themeMenu(android.view.Menu, int color, int subMenuColor);
+    method @KotlinOnly public static void themeMenu(android.view.Menu, com.vanniktech.ui.Color color, com.vanniktech.ui.Color subMenuColor);
   }
 
   public final class AndroidRecyclerViewExtensionsKt {
@@ -73,91 +74,78 @@ package com.vanniktech.ui {
   }
 
   public final class AndroidThemingHacksKt {
-    method public static void setTint(android.graphics.drawable.Drawable, int color);
-    method public static android.graphics.drawable.Drawable tinted(android.graphics.drawable.Drawable, int color);
+    method @KotlinOnly public static void setTint(android.graphics.drawable.Drawable, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static android.graphics.drawable.Drawable tinted(android.graphics.drawable.Drawable, com.vanniktech.ui.Color color);
   }
 
   public final class AndroidViewKt {
-    method public static void themeBottomNavigationView(com.google.android.material.bottomnavigation.BottomNavigationView, int colorBackground, int colorOnBackground, int colorOnBackgroundSecondary, int colorRipple);
-    method public static void themeButton(com.google.android.material.button.MaterialButton, int colorBackground, int colorBackgroundDisabled, int colorText, int colorTextDisabled, int colorRipple);
-    method public static void themeCheckBox(android.widget.CheckBox, int color, int colorText, int colorTextSecondary);
-    method public static void themeChip(com.google.android.material.chip.Chip, int colorBackground, int colorBackgroundSelected, int colorText, int colorTextSelected, int colorRipple);
-    method public static void themeEditText(android.widget.EditText, int color, int colorText, int colorTextSecondary);
-    method public static void themeExtendedFloatingActionButton(com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton, int color, int colorOn, int colorRipple);
-    method public static void themeFloatingActionButton(com.google.android.material.floatingactionbutton.FloatingActionButton, int color, int colorOn, int colorRipple);
-    method public static void themeMaterialAutoCompleteTextView(com.google.android.material.textfield.MaterialAutoCompleteTextView, int color, int colorText, int colorTextSecondary, int colorRipple, int colorDropDownBackground);
-    method public static void themeOutlineButton(com.google.android.material.button.MaterialButton, int color, int colorDisabled, int colorRipple);
-    method public static void themeProgressBar(android.widget.ProgressBar, int color);
-    method public static void themeRadioButton(android.widget.RadioButton, int color, int colorText, int colorTextSecondary);
-    method public static void themeRecyclerView(androidx.recyclerview.widget.RecyclerView, int color);
-    method public static void themeSeekBar(android.widget.SeekBar, int color);
-    method public static void themeSwipeRefreshLayout(androidx.swiperefreshlayout.widget.SwipeRefreshLayout, int color, int backgroundColor);
-    method public static void themeTabLayout(com.google.android.material.tabs.TabLayout, int colorToolbar, int colorOnToolbarPrimary, int colorOnToolbarSecondary, int colorRipple);
-    method public static void themeTextButton(com.google.android.material.button.MaterialButton, int color, int colorDisabled, int colorRipple);
-    method public static void themeTextInputLayout(com.google.android.material.textfield.TextInputLayout, int colorText, int colorError, int colorBoxPrimary, int colorBoxSecondary);
-    method public static void themeTextView(android.widget.TextView, int color, int colorText, int colorTextSecondary);
-    method public static void themeToggleButton(com.google.android.material.button.MaterialButton, int color, int colorUnchecked, int colorRipple);
-    method public static void themeToolbar(com.google.android.material.appbar.MaterialToolbar, int colorToolbar, int colorOnToolbarPrimary, int colorOnToolbarSecondary, int colorNavigationIcon);
-    method public static void themeViewPager(androidx.viewpager.widget.ViewPager, int color);
-    method public static void themeWebView(android.webkit.WebView, int backgroundColor, boolean isNight);
+    method @KotlinOnly public static void themeBottomNavigationView(com.google.android.material.bottomnavigation.BottomNavigationView, com.vanniktech.ui.Color colorBackground, com.vanniktech.ui.Color colorOnBackground, com.vanniktech.ui.Color colorOnBackgroundSecondary, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeButton(com.google.android.material.button.MaterialButton, com.vanniktech.ui.Color colorBackground, com.vanniktech.ui.Color colorBackgroundDisabled, com.vanniktech.ui.Color colorText, com.vanniktech.ui.Color colorTextDisabled, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeCheckBox(android.widget.CheckBox, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorText, com.vanniktech.ui.Color colorTextSecondary);
+    method @KotlinOnly public static void themeChip(com.google.android.material.chip.Chip, com.vanniktech.ui.Color colorBackground, com.vanniktech.ui.Color colorBackgroundSelected, com.vanniktech.ui.Color colorText, com.vanniktech.ui.Color colorTextSelected, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeEditText(android.widget.EditText, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorText, com.vanniktech.ui.Color colorTextSecondary);
+    method @KotlinOnly public static void themeExtendedFloatingActionButton(com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorOn, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeFloatingActionButton(com.google.android.material.floatingactionbutton.FloatingActionButton, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorOn, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeMaterialAutoCompleteTextView(com.google.android.material.textfield.MaterialAutoCompleteTextView, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorText, com.vanniktech.ui.Color colorTextSecondary, com.vanniktech.ui.Color colorRipple, com.vanniktech.ui.Color colorDropDownBackground);
+    method @KotlinOnly public static void themeOutlineButton(com.google.android.material.button.MaterialButton, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorDisabled, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeProgressBar(android.widget.ProgressBar, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static void themeRadioButton(android.widget.RadioButton, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorText, com.vanniktech.ui.Color colorTextSecondary);
+    method @KotlinOnly public static void themeRecyclerView(androidx.recyclerview.widget.RecyclerView, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static void themeSeekBar(android.widget.SeekBar, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static void themeSwipeRefreshLayout(androidx.swiperefreshlayout.widget.SwipeRefreshLayout, com.vanniktech.ui.Color color, com.vanniktech.ui.Color backgroundColor);
+    method @KotlinOnly public static void themeTabLayout(com.google.android.material.tabs.TabLayout, com.vanniktech.ui.Color colorToolbar, com.vanniktech.ui.Color colorOnToolbarPrimary, com.vanniktech.ui.Color colorOnToolbarSecondary, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeTextButton(com.google.android.material.button.MaterialButton, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorDisabled, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeTextInputLayout(com.google.android.material.textfield.TextInputLayout, com.vanniktech.ui.Color colorText, com.vanniktech.ui.Color colorError, com.vanniktech.ui.Color colorBoxPrimary, com.vanniktech.ui.Color colorBoxSecondary);
+    method @KotlinOnly public static void themeTextView(android.widget.TextView, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorText, com.vanniktech.ui.Color colorTextSecondary);
+    method @KotlinOnly public static void themeToggleButton(com.google.android.material.button.MaterialButton, com.vanniktech.ui.Color color, com.vanniktech.ui.Color colorUnchecked, com.vanniktech.ui.Color colorRipple);
+    method @KotlinOnly public static void themeToolbar(com.google.android.material.appbar.MaterialToolbar, com.vanniktech.ui.Color colorToolbar, com.vanniktech.ui.Color colorOnToolbarPrimary, com.vanniktech.ui.Color colorOnToolbarSecondary, com.vanniktech.ui.Color colorNavigationIcon);
+    method @KotlinOnly public static void themeViewPager(androidx.viewpager.widget.ViewPager, com.vanniktech.ui.Color color);
+    method @KotlinOnly public static void themeWebView(android.webkit.WebView, com.vanniktech.ui.Color backgroundColor, boolean isNight);
   }
 
   public final class AndroidWindowKt {
-    method public static void themeWindow(android.view.Window, int statusBarColor, int navigationBarColor, boolean lightNavigationBars, boolean lightStatusBars);
+    method @KotlinOnly public static void themeWindow(android.view.Window, com.vanniktech.ui.Color statusBarColor, com.vanniktech.ui.Color navigationBarColor, boolean lightNavigationBars, boolean lightStatusBars);
   }
 
   public final class ArgbEvaluator {
-    method public int evaluate(float fraction, int startValue, int endValue);
+    method @KotlinOnly public com.vanniktech.ui.Color evaluate(float fraction, com.vanniktech.ui.Color startValue, com.vanniktech.ui.Color endValue);
     field public static final com.vanniktech.ui.ArgbEvaluator INSTANCE;
   }
 
   @kotlin.jvm.JvmInline @kotlinx.serialization.Serializable(with=ColorSerializer::class) public final value class Color implements com.vanniktech.ui.UiParcelable {
-    ctor public Color(int argb);
-    method public int brighten(float factor);
-    method public int copy(optional float alpha, optional float red, optional float green, optional float blue);
-    method public int copy(optional int alpha, optional int red, optional int green, optional int blue);
-    method public int getArgb();
-    method public String htmlRgbaString();
-    method public boolean shouldUseBlackFont();
-    property public final int argb;
+    ctor @KotlinOnly public Color(int argb);
+    method @KotlinOnly public com.vanniktech.ui.Color brighten(float factor);
+    method @KotlinOnly public com.vanniktech.ui.Color copy(optional float alpha, optional float red, optional float green, optional float blue);
+    method @KotlinOnly public com.vanniktech.ui.Color copy(optional int alpha, optional int red, optional int green, optional int blue);
+    method @InaccessibleFromKotlin public int getArgb();
+    method @KotlinOnly public String htmlRgbaString();
+    method @KotlinOnly public boolean shouldUseBlackFont();
+    property public int argb;
     field public static final com.vanniktech.ui.Color.Companion Companion;
   }
 
   public static final class Color.Companion {
-    method public int fromArgb(int alpha, int red, int green, int blue);
-    method public com.vanniktech.ui.Color? fromHexOrNull(String hex);
-    method public int getBLACK();
-    method public int getTRANSPARENT();
-    method public int getUNTINTED();
-    method public int getWHITE();
-    property public final int BLACK;
-    property public final int TRANSPARENT;
-    property public final int UNTINTED;
-    property public final int WHITE;
-  }
-
-  public final class ColorKt {
-    method public static int getColor(int);
-    method public static int getColor(long);
+    method @KotlinOnly public com.vanniktech.ui.Color fromArgb(int alpha, int red, int green, int blue);
+    method @KotlinOnly public com.vanniktech.ui.Color? fromHexOrNull(String hex);
+    property public com.vanniktech.ui.Color BLACK;
+    property public com.vanniktech.ui.Color TRANSPARENT;
+    property public com.vanniktech.ui.Color UNTINTED;
+    property public com.vanniktech.ui.Color WHITE;
   }
 
   public final class ColorSerializer implements kotlinx.serialization.KSerializer<com.vanniktech.ui.Color> {
-    method public int deserialize(kotlinx.serialization.encoding.Decoder decoder);
-    method public kotlinx.serialization.descriptors.SerialDescriptor getDescriptor();
-    method public void serialize(kotlinx.serialization.encoding.Encoder encoder, int value);
+    method @KotlinOnly public com.vanniktech.ui.Color deserialize(kotlinx.serialization.encoding.Decoder decoder);
+    method @InaccessibleFromKotlin public kotlinx.serialization.descriptors.SerialDescriptor getDescriptor();
+    method @KotlinOnly public void serialize(kotlinx.serialization.encoding.Encoder encoder, com.vanniktech.ui.Color value);
     property public kotlinx.serialization.descriptors.SerialDescriptor descriptor;
     field public static final com.vanniktech.ui.ColorSerializer INSTANCE;
   }
 
   public enum MaterialColor {
-    method public int getColor400();
-    method public int getColor500();
-    method public int getColor800();
-    method public int getColorToolbar();
-    property public final int color400;
-    property public final int color500;
-    property public final int color800;
-    property public final int colorToolbar;
+    property public com.vanniktech.ui.Color color400;
+    property public com.vanniktech.ui.Color color500;
+    property public com.vanniktech.ui.Color color800;
+    property public com.vanniktech.ui.Color colorToolbar;
     enum_constant public static final com.vanniktech.ui.MaterialColor AMBER;
     enum_constant public static final com.vanniktech.ui.MaterialColor BLUE;
     enum_constant public static final com.vanniktech.ui.MaterialColor BLUE_GRAY;
@@ -182,73 +170,68 @@ package com.vanniktech.ui {
   public interface UiParcelable {
   }
 
-  public interface UiParcelable {
-  }
-
 }
 
 package com.vanniktech.ui.theming {
 
   @kotlinx.serialization.Serializable(with=ThemingColorSerializer::class) public final class ThemingColor implements com.vanniktech.ui.UiParcelable {
-    ctor public ThemingColor(int light, int dark);
-    method public int component1-oEAH0UE();
-    method public int component2-oEAH0UE();
-    method public com.vanniktech.ui.theming.ThemingColor copy-NnySmFY(int light, int dark);
-    method public int getDark();
-    method public int getLight();
-    method public int mapped(boolean isNight);
+    ctor @KotlinOnly public ThemingColor(com.vanniktech.ui.Color light, com.vanniktech.ui.Color dark);
+    method @KotlinOnly public operator com.vanniktech.ui.Color component1();
+    method @KotlinOnly public operator com.vanniktech.ui.Color component2();
+    method @KotlinOnly public com.vanniktech.ui.theming.ThemingColor copy(optional com.vanniktech.ui.Color light, optional com.vanniktech.ui.Color dark);
+    method @KotlinOnly public com.vanniktech.ui.Color mapped(boolean isNight);
     method public com.vanniktech.ui.theming.ThemingColor with(float alpha);
-    property public final int dark;
-    property public final int light;
+    property public com.vanniktech.ui.Color dark;
+    property public com.vanniktech.ui.Color light;
     field public static final com.vanniktech.ui.theming.ThemingColor.Companion Companion;
   }
 
   public static final class ThemingColor.Companion {
-    method public com.vanniktech.ui.theming.ThemingColor single(int color);
+    method @KotlinOnly public com.vanniktech.ui.theming.ThemingColor single(com.vanniktech.ui.Color color);
   }
 
   public final class ThemingColorSerializer implements kotlinx.serialization.KSerializer<com.vanniktech.ui.theming.ThemingColor> {
     method public com.vanniktech.ui.theming.ThemingColor deserialize(kotlinx.serialization.encoding.Decoder decoder);
-    method public kotlinx.serialization.descriptors.SerialDescriptor getDescriptor();
+    method @InaccessibleFromKotlin public kotlinx.serialization.descriptors.SerialDescriptor getDescriptor();
     method public void serialize(kotlinx.serialization.encoding.Encoder encoder, com.vanniktech.ui.theming.ThemingColor value);
     property public kotlinx.serialization.descriptors.SerialDescriptor descriptor;
     field public static final com.vanniktech.ui.theming.ThemingColorSerializer INSTANCE;
   }
 
   public interface UiTheming {
-    method public int colorBackgroundPrimary();
-    method public int colorBackgroundSecondary();
-    method public int colorBackgroundTertiary();
-    method public int colorBottomNavigation();
-    method public int colorDivider();
-    method public int colorError();
-    method public int colorOnPrimary();
-    method public int colorOnSecondary();
-    method public int colorPrimary();
-    method public int colorRipple();
-    method public int colorSecondary();
-    method public int colorSuccess();
-    method public int colorTextPrimary();
-    method public int colorTextSecondary();
-    method public int colorTopNavigation();
-    method public int colorWarning();
-    method public com.vanniktech.ui.theming.ThemingColor getColorBackgroundPrimary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorBackgroundSecondary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorBackgroundTertiary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorBottomNavigation();
-    method public com.vanniktech.ui.theming.ThemingColor getColorDivider();
-    method public com.vanniktech.ui.theming.ThemingColor getColorError();
-    method public com.vanniktech.ui.theming.ThemingColor getColorOnPrimary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorOnSecondary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorPrimary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorRipple();
-    method public com.vanniktech.ui.theming.ThemingColor getColorSecondary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorSuccess();
-    method public com.vanniktech.ui.theming.ThemingColor getColorTextPrimary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorTextSecondary();
-    method public com.vanniktech.ui.theming.ThemingColor getColorTopNavigation();
-    method public com.vanniktech.ui.theming.ThemingColor getColorWarning();
-    method public boolean isNight();
+    method @KotlinOnly public com.vanniktech.ui.Color colorBackgroundPrimary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorBackgroundSecondary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorBackgroundTertiary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorBottomNavigation();
+    method @KotlinOnly public com.vanniktech.ui.Color colorDivider();
+    method @KotlinOnly public com.vanniktech.ui.Color colorError();
+    method @KotlinOnly public com.vanniktech.ui.Color colorOnPrimary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorOnSecondary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorPrimary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorRipple();
+    method @KotlinOnly public com.vanniktech.ui.Color colorSecondary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorSuccess();
+    method @KotlinOnly public com.vanniktech.ui.Color colorTextPrimary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorTextSecondary();
+    method @KotlinOnly public com.vanniktech.ui.Color colorTopNavigation();
+    method @KotlinOnly public com.vanniktech.ui.Color colorWarning();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorBackgroundPrimary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorBackgroundSecondary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorBackgroundTertiary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorBottomNavigation();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorDivider();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorError();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorOnPrimary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorOnSecondary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorPrimary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorRipple();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorSecondary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorSuccess();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorTextPrimary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorTextSecondary();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorTopNavigation();
+    method @InaccessibleFromKotlin public com.vanniktech.ui.theming.ThemingColor getColorWarning();
+    method @InaccessibleFromKotlin public boolean isNight();
     property public abstract com.vanniktech.ui.theming.ThemingColor colorBackgroundPrimary;
     property public abstract com.vanniktech.ui.theming.ThemingColor colorBackgroundSecondary;
     property public abstract com.vanniktech.ui.theming.ThemingColor colorBackgroundTertiary;
@@ -288,8 +271,8 @@ package com.vanniktech.ui.theming.night {
   }
 
   public enum NightModeBehavior {
-    method public int getValue();
-    property public final int value;
+    method @InaccessibleFromKotlin public int getValue();
+    property public int value;
     enum_constant public static final com.vanniktech.ui.theming.night.NightModeBehavior FOLLOW_SYSTEM;
     enum_constant public static final com.vanniktech.ui.theming.night.NightModeBehavior NO;
     enum_constant public static final com.vanniktech.ui.theming.night.NightModeBehavior YES;
@@ -318,7 +301,7 @@ package com.vanniktech.ui.theming.night {
 
 package com.vanniktech.ui.view {
 
-  public sealed interface ColorPickerStrings {
+  public sealed exhaustive interface ColorPickerStrings {
   }
 
   public final class ColorPickerStringsAndroid implements com.vanniktech.ui.view.ColorPickerStrings {
@@ -328,17 +311,17 @@ package com.vanniktech.ui.view {
     method public int component3();
     method public int component4();
     method public int component5();
-    method public com.vanniktech.ui.view.ColorPickerStringsAndroid copy(@StringRes int alpha, @StringRes int red, @StringRes int green, @StringRes int blue, @StringRes int hex);
-    method public int getAlpha();
-    method public int getBlue();
-    method public int getGreen();
-    method public int getHex();
-    method public int getRed();
-    property public final int alpha;
-    property public final int blue;
-    property public final int green;
-    property public final int hex;
-    property public final int red;
+    method public com.vanniktech.ui.view.ColorPickerStringsAndroid copy(optional @StringRes int alpha, optional @StringRes int red, optional @StringRes int green, optional @StringRes int blue, optional @StringRes int hex);
+    method @InaccessibleFromKotlin public int getAlpha();
+    method @InaccessibleFromKotlin public int getBlue();
+    method @InaccessibleFromKotlin public int getGreen();
+    method @InaccessibleFromKotlin public int getHex();
+    method @InaccessibleFromKotlin public int getRed();
+    property public int alpha;
+    property public int blue;
+    property public int green;
+    property public int hex;
+    property public int red;
   }
 
   public final class ColorPickerStringsHardcoded implements com.vanniktech.ui.view.ColorPickerStrings {
@@ -348,26 +331,26 @@ package com.vanniktech.ui.view {
     method public String component3();
     method public String component4();
     method public String component5();
-    method public com.vanniktech.ui.view.ColorPickerStringsHardcoded copy(String? alpha, String red, String green, String blue, String hex);
-    method public String? getAlpha();
-    method public String getBlue();
-    method public String getGreen();
-    method public String getHex();
-    method public String getRed();
-    property public final String? alpha;
-    property public final String blue;
-    property public final String green;
-    property public final String hex;
-    property public final String red;
+    method public com.vanniktech.ui.view.ColorPickerStringsHardcoded copy(optional String? alpha, optional String red, optional String green, optional String blue, optional String hex);
+    method @InaccessibleFromKotlin public String? getAlpha();
+    method @InaccessibleFromKotlin public String getBlue();
+    method @InaccessibleFromKotlin public String getGreen();
+    method @InaccessibleFromKotlin public String getHex();
+    method @InaccessibleFromKotlin public String getRed();
+    property public String? alpha;
+    property public String blue;
+    property public String green;
+    property public String hex;
+    property public String red;
   }
 
   public final class ColorPickerView extends android.widget.LinearLayout {
     ctor public ColorPickerView(android.content.Context context);
     ctor public ColorPickerView(android.content.Context context, optional android.util.AttributeSet? attrs);
-    method public int color();
+    method @KotlinOnly public com.vanniktech.ui.Color color();
     method public void onRestoreInstanceState(com.vanniktech.ui.UiParcelable? state);
     method protected com.vanniktech.ui.UiParcelable onSaveInstanceState();
-    method public void setUp(com.vanniktech.ui.theming.UiTheming theming, com.vanniktech.ui.view.ColorPickerStrings strings, int selectedColor);
+    method @KotlinOnly public void setUp(com.vanniktech.ui.theming.UiTheming theming, com.vanniktech.ui.view.ColorPickerStrings strings, com.vanniktech.ui.Color selectedColor);
   }
 
 }
